@@ -1,2 +1,2 @@
 export * from "./getMaterials";
-export * from "./getMaterialsMock";
+export * from "./getMaterials.mock";

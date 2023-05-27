@@ -1,2 +1,2 @@
 export * from "./getEquipment";
-export * from "./getEquipmentMock";
+export * from "./getEquipment.mock";
