@@ -1,4 +1,4 @@
-import { BASE_URL } from "api/constants";
+import { BASE_URL } from "api";
 import axios from "axios";
 
 async function getEquipment() {
