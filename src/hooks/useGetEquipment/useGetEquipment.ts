@@ -1,5 +1,5 @@
-import { getEquipment } from "api";
 import { useQuery } from "@tanstack/react-query";
+import { getEquipment } from "api";
 
 interface EquipmentResponse {
   data?: {

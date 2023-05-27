@@ -1,5 +1,5 @@
-import { getTreasure } from "api";
 import { useQuery } from "@tanstack/react-query";
+import { getTreasure } from "api";
 
 interface TreasureResponse {
   data?: {

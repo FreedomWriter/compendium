@@ -1,5 +1,5 @@
-import { getMonsters } from "api";
 import { useQuery } from "@tanstack/react-query";
+import { getMonsters } from "api";
 
 interface MonstersResponse {
   data?: {
