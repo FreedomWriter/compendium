@@ -1,4 +1,4 @@
-import { getCreatures } from "api/getCreatures";
+import { getCreatures } from "api";
 import { useQuery } from "@tanstack/react-query";
 
 interface Creature {
@@ -21,12 +21,12 @@ export const useGetCreatures = (option: "all" | "edible" | " inedible") => {
     isLoading,
     isError,
     isSuccess,
-  } = useQuery(["getAllCreatures", option], getCreatures);
+  } = useQuery(["getAllCreatures", { option }], getCreatures);
 
   const CREATURE_MAP = {
-    all: [...edibleCreatures, ...inedibleCreatures] as Creature[],
-    edible: edibleCreatures as Creature[],
-    inedible: inedibleCreatures as Creature[],
+    all: [...edibleCreatures, ...inedibleCreatures] as Creature[] | undefined,
+    edible: edibleCreatures as Creature[] | undefined,
+    inedible: inedibleCreatures as Creature[] | undefined,
   };
 
   return {

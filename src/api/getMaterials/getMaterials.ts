@@ -1,16 +1,16 @@
 import { BASE_URL } from "api";
 import axios from "axios";
 
-async function getCreatures() {
+async function getMaterials() {
   try {
     const {
       data: { data },
-    } = await axios.get(`${BASE_URL}/category/creatures`);
+    } = await axios.get(`${BASE_URL}/category/materials`);
 
     return data;
-  } catch (error) {
+  } catch (_) {
     //Do nothing - react query will catch errors
   }
 }
 
-export { getCreatures };
+export { getMaterials };
