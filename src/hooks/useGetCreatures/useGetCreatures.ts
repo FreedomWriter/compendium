@@ -1,16 +1,7 @@
 import { getCreatures } from "api";
 import { useQuery } from "@tanstack/react-query";
+import { Creature } from "types";
 
-interface Creature {
-  category: string;
-  common_locations: string[];
-  cooking_effect: string;
-  description: string;
-  hearts_recovered: number;
-  id: number;
-  image: string;
-  name: string;
-}
 // this api separates creatures into two arrays[ food: [{...creatureData}, non_food]], we want to be able to return an entire list of creatures. We will also want to be able to sort by edible and non edible creatures and since the api doesn't offer query params, the work has been done here
 export const useGetCreatures = (option: "all" | "edible" | " inedible") => {
   const {

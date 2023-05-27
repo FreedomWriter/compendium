@@ -1,21 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getEquipment } from "api";
-
-interface EquipmentResponse {
-  data?: {
-    attack: number;
-    category: string;
-    common_locations: string[];
-    defense: number;
-    description: string;
-    id: number;
-    image: string;
-    name: string;
-  };
-  isLoading: boolean;
-  isError: boolean;
-  isSuccess: boolean;
-}
+import { EquipmentResponse } from "types";
 
 export const useGetEquipment = () => {
   const {
