@@ -18,7 +18,10 @@ const darkTheme: CustomTheme = {
 
 const useTheme = (): [CustomTheme, () => void] => {
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const [theme, setTheme] = useState<CustomTheme>(lightTheme);
+  const [theme, setTheme] = useState<CustomTheme>({
+    ...lightTheme,
+    isDarkMode,
+  });
 
   const toggleTheme = React.useCallback(() => {
     setIsDarkMode((prevMode) => !prevMode);
@@ -32,8 +35,9 @@ const useTheme = (): [CustomTheme, () => void] => {
   }, []);
 
   useEffect(() => {
+    console.log("useEffect");
     const selectedTheme = isDarkMode ? darkTheme : lightTheme;
-    setTheme(selectedTheme);
+    setTheme({ ...selectedTheme, isDarkMode });
   }, [isDarkMode]);
 
   return [theme, toggleTheme];
