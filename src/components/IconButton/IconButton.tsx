@@ -1,8 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { ButtonProps } from "types";
+import { useTheme } from "hooks";
 
-import { COLORS, media } from "utils";
+import { COLORS } from "utils";
 
 const Button = styled.button`
   padding: 8px;
@@ -11,18 +12,6 @@ const Button = styled.button`
   outline-color: transparent;
   cursor: pointer;
   color: ${COLORS.primary};
-
-  border: 1px solid ${COLORS.secondary};
-  background-color: ${COLORS.primary};
-  border-radius: 50%;
-
-  /* ${media.medium`
-    padding:12px 20px;
-  `}
-
-  ${media.large`
-    padding:16px 32px
-  `} */
 
   &:focus {
     outline-offset: 4px;
@@ -34,6 +23,18 @@ const Button = styled.button`
 `;
 
 const IconButton = ({ children, onClick }: ButtonProps) => {
-  return <Button onClick={onClick}>{children}</Button>;
+  const [theme] = useTheme();
+  const darkModeStyles = !!theme?.isDarkMode
+    ? {
+        border: `1px solid ${COLORS.secondary}`,
+        backgroundColor: `${COLORS.primary}`,
+        borderRadius: "50%",
+      }
+    : { before: "" };
+  return (
+    <Button style={darkModeStyles} onClick={onClick}>
+      {children}
+    </Button>
+  );
 };
 export { IconButton };

@@ -71,4 +71,6 @@ export const GlobalStyles = createGlobalStyle`
   }
 
 
+
+
 `;

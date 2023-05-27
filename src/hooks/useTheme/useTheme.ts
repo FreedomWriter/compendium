@@ -39,7 +39,7 @@ const useTheme = (): [CustomTheme, () => void] => {
     const selectedTheme = isDarkMode ? darkTheme : lightTheme;
     setTheme({ ...selectedTheme, isDarkMode });
   }, [isDarkMode]);
-
+  console.log(theme);
   return [theme, toggleTheme];
 };
 
