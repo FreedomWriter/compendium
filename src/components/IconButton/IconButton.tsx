@@ -61,7 +61,6 @@ const Button = styled.button<ButtonProps>`
 
 const IconButton = ({ children, onClick, isActive }: ButtonProps) => {
   const [theme] = useTheme();
-  console.log(theme.isDarkMode);
 
   return (
     <div
