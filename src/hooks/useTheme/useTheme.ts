@@ -35,11 +35,10 @@ const useTheme = (): [CustomTheme, () => void] => {
   }, []);
 
   useEffect(() => {
-    console.log("useEffect");
     const selectedTheme = isDarkMode ? darkTheme : lightTheme;
     setTheme({ ...selectedTheme, isDarkMode });
   }, [isDarkMode]);
-  console.log(theme);
+
   return [theme, toggleTheme];
 };
 

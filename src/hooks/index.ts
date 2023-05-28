@@ -4,3 +4,4 @@ export * from "./useGetMaterials";
 export * from "./useGetMonsters";
 export * from "./useGetTreasure";
 export * from "./useTheme";
+export * from "./useContent";
