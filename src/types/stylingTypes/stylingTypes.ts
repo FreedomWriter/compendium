@@ -11,7 +11,7 @@ export interface ColorScheme {
   darkFont: string;
   darkPrimary: string;
   default: string;
-  isDarkMode?: boolean;
+  isDarkMode: boolean;
 }
 
 export interface CustomTheme extends DefaultTheme, ColorScheme {}

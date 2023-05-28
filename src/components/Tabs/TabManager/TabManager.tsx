@@ -18,7 +18,10 @@ const TabManager = ({ tabsConfig, defaultIndex = 0 }: TabsProps) => {
         <TabNavContainer>
           {tabsConfig.map((tab, index) => (
             <li key={`tab-${index}`}>
-              <IconButton onClick={() => handleClick(index)}>
+              <IconButton
+                isActive={selectedIndex === index}
+                onClick={() => handleClick(index)}
+              >
                 {tab.icon}
                 <VisuallyHidden>{tab.label}</VisuallyHidden>
               </IconButton>
