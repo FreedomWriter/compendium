@@ -1,18 +1,19 @@
 import React from "react";
-import { useTheme } from "hooks";
+import { useContent, useTheme } from "hooks";
 import { GlobalStyles } from "utils";
+import { TabManager } from "components";
 
 function App() {
   const [theme] = useTheme();
+  const { tabConfig, isLoading, isError } = useContent();
+
   return (
-    <>
+    <main>
       <GlobalStyles theme={theme} />
-      <div>Compendium</div>
-      <div style={{ color: theme.primary }}>primary</div>
-      <div style={{ color: theme.secondary }}>secondary</div>
-      <div style={{ color: theme.error }}>My word!</div>
-      <div style={{ color: theme.success }}>My word!</div>
-    </>
+      {isError && <h1>OH NOOOOO</h1>}
+      {isLoading && <h1>Loading...</h1>}
+      {tabConfig.length > 0 && <TabManager tabsConfig={tabConfig} />}
+    </main>
   );
 }
 
