@@ -4,3 +4,4 @@ export * from "./getEquipment";
 export * from "./getMaterials";
 export * from "./getMonsters";
 export * from "./getTreasure";
+export * from "./getMasterMode";

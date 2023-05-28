@@ -1,4 +1,4 @@
-export interface EquipmentResponse {
+export type EquipmentResponse = {
   data?: {
     attack: number;
     category: string;
@@ -12,8 +12,8 @@ export interface EquipmentResponse {
   isLoading: boolean;
   isError: boolean;
   isSuccess: boolean;
-}
-export interface Equipment {
+};
+export type Equipment = {
   attack: number;
   category: string;
   common_locations: string[];
@@ -22,4 +22,4 @@ export interface Equipment {
   id: number;
   image: string;
   name: string;
-}
+};

@@ -1,4 +1,4 @@
-export interface TreasureResponse {
+export type TreasureResponse = {
   data?: {
     category: string;
     common_locations: string[];
@@ -11,9 +11,9 @@ export interface TreasureResponse {
   isLoading: boolean;
   isError: boolean;
   isSuccess: boolean;
-}
+};
 
-export interface Treasure {
+export type Treasure = {
   category: string;
   common_locations: string[];
   description: string;
@@ -21,4 +21,4 @@ export interface Treasure {
   id: number;
   image: string;
   name: string;
-}
+};

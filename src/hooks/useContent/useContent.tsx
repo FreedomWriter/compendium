@@ -49,11 +49,14 @@ const useContent = (): UseContent => {
           monstersData.monsters,
           treasureData.treasure,
         ].filter(Boolean) as AllContent
-      ).map((content) => ({
-        label: content[0].category,
-        content,
-        icon: <Icon icon={content[0].category || "default"} />,
-      }));
+      ).map((content) => {
+        console.log({ content });
+        return {
+          label: content[0].category,
+          content,
+          icon: <Icon icon={content[0].category || "default"} />,
+        };
+      });
       setTabConfig(mergedData);
     }
   }, [

@@ -1,4 +1,4 @@
-export interface Creature {
+export type Creature = {
   category: string;
   common_locations: string[];
   cooking_effect: string;
@@ -7,4 +7,4 @@ export interface Creature {
   id: number;
   image: string;
   name: string;
-}
+};

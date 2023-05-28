@@ -1,8 +1,8 @@
 import React from "react";
 
-export interface ButtonProps {
+export type ButtonProps = {
   children: React.ReactNode;
   onClick: () => void;
   isDarkMode?: boolean;
   isActive?: boolean;
-}
+};
