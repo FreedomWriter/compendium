@@ -59,7 +59,7 @@ const useContent = (): UseContent => {
       ).map((content) => ({
         label: content[0].category,
         content,
-        icon: <Icon icon={content[0].category} />,
+        icon: <Icon icon={content[0].category || "default"} />,
       }));
       setTabConfig(mergedData);
     }

@@ -8,10 +8,12 @@ export const COLORS: ColorScheme = {
   secondary: "hsl(41,38%,50%)",
   error: "hsl(16,100%,46%)",
   success: "hsl(90,49%,50%)",
-  darkBackground: "hsl(355, 68%, 4%)",
+  darkBackground: "hsla(355, 68%, 4%, .92)",
   darkFont: "hsl(41,38%,56%)",
   darkPrimary: "hsl(357,15%,50%)",
   default: "hsl(210, 15%, 95%)",
+  isDarkMode:
+    !!window.matchMedia("(prefers-color-scheme: dark)").matches || false,
 };
 
 const sizes = {

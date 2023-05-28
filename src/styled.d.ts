@@ -14,6 +14,6 @@ declare module "styled-components" {
     darkBackground: string;
     darkFont: string;
     default: string;
-    isDarkMode?: boolean;
+    isDarkMode: boolean;
   }
 }
