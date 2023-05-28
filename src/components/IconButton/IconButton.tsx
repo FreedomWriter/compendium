@@ -1,8 +1,9 @@
 import React from "react";
-import { ButtonProps } from "types";
+
 import { useTheme } from "hooks";
 
 import { IconButtonContainer, Button, ActiveItemIndicator } from "./styled";
+import { ButtonProps } from "types";
 
 const IconButton = ({ children, onClick, isActive }: ButtonProps) => {
   const [theme] = useTheme();

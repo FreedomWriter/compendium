@@ -1,4 +1,11 @@
-import { Creature, Equipment, Material, Monster, Treasure } from "types";
+import {
+  Creature,
+  Equipment,
+  Material,
+  Monster,
+  TabConfig,
+  Treasure,
+} from "types";
 
 export type AllContent = [
   Creature[],
@@ -9,3 +16,9 @@ export type AllContent = [
 ];
 
 export type Content = Creature | Equipment | Material | Monster | Treasure;
+
+export type UseContent = {
+  tabConfig: TabConfig[];
+  isLoading: boolean;
+  isError: boolean;
+};

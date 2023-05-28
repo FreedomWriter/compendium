@@ -1,7 +1,7 @@
 import React from "react";
-import { TabContentProps } from "types";
 
 import { Section } from "./styled";
+import { TabContentProps } from "types";
 
 const TabContent = ({ isHidden, children }: TabContentProps) => {
   return (

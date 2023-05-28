@@ -6,8 +6,7 @@ import {
   useGetMonsters,
   useGetTreasure,
 } from "hooks";
-
-import { AllContent, TabConfig } from "types";
+import { AllContent, TabConfig, UseContent } from "types";
 
 const Icon = ({ icon }: { icon: string }) => {
   return (
@@ -15,12 +14,6 @@ const Icon = ({ icon }: { icon: string }) => {
       <img src={`/images/${icon.toLowerCase()}.png`} alt={icon}></img>
     </div>
   );
-};
-
-export type UseContent = {
-  tabConfig: TabConfig[];
-  isLoading: boolean;
-  isError: boolean;
 };
 
 const useContent = (): UseContent => {
