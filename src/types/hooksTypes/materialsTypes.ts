@@ -1,4 +1,4 @@
-export interface MaterialsResponse {
+export type MaterialsResponse = {
   data?: {
     category: string;
     common_locations: string[];
@@ -12,9 +12,9 @@ export interface MaterialsResponse {
   isLoading: boolean;
   isError: boolean;
   isSuccess: boolean;
-}
+};
 
-export interface Material {
+export type Material = {
   category: string;
   common_locations: string[];
   cooking_effect: string;
@@ -23,4 +23,4 @@ export interface Material {
   id: number;
   image: string;
   name: string;
-}
+};

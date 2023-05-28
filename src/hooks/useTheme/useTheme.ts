@@ -16,22 +16,20 @@ const darkTheme: CustomTheme = {
   default: COLORS.darkBackground,
 };
 
-const useTheme = (): [CustomTheme, () => void] => {
+export type UseThemeResponse = [CustomTheme, (manual?: boolean) => void];
+
+const useTheme = (): UseThemeResponse => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [theme, setTheme] = useState<CustomTheme>({
     ...lightTheme,
     isDarkMode,
   });
 
-  const toggleTheme = React.useCallback(() => {
+  const toggleTheme = React.useCallback((manual?: boolean) => {
+    if (manual !== undefined) {
+      return setIsDarkMode(manual);
+    }
     setIsDarkMode((prevMode) => !prevMode);
-  }, []);
-
-  useEffect(() => {
-    const prefersDarkMode =
-      typeof window !== "undefined" &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setIsDarkMode(prefersDarkMode);
   }, []);
 
   useEffect(() => {

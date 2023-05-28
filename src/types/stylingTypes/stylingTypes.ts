@@ -1,6 +1,6 @@
 import { DefaultTheme } from "styled-components";
 
-export interface ColorScheme {
+export type ColorScheme = {
   background: string;
   font: string;
   primary: string;
@@ -12,6 +12,6 @@ export interface ColorScheme {
   darkPrimary: string;
   default: string;
   isDarkMode: boolean;
-}
+};
 
 export interface CustomTheme extends DefaultTheme, ColorScheme {}

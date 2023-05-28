@@ -1,17 +1,43 @@
 import React from "react";
-import { TabsProps } from "types";
+import { PlayMode, TabsProps } from "types";
 
-import { VisuallyHidden, IconButton, TabContent } from "components";
+import {
+  VisuallyHidden,
+  IconButton,
+  TabContent,
+  ToggleMode,
+  MasterModeMonsters,
+} from "components";
 
 import { NavContainer, TabNavContainer } from "./styled";
 
-const TabManager = ({ tabsConfig, defaultIndex = 0 }: TabsProps) => {
+const TabManager = ({
+  tabsConfig,
+  defaultIndex = 0,
+  toggleTheme,
+}: TabsProps) => {
   const [selectedIndex, setSelectedIndex] = React.useState(defaultIndex);
+  const [selectedTab, setSelectedTab] = React.useState(
+    tabsConfig[selectedIndex].label
+  );
+  const [playMode, setPlayMode] = React.useState<PlayMode>("default");
+
+  const handleToggleMode = (playMode: PlayMode) => {
+    setPlayMode(playMode);
+    const isDarkMode: boolean = playMode === "default" ? false : true;
+    toggleTheme(isDarkMode);
+  };
 
   const handleClick = React.useCallback(
-    (index: number) => setSelectedIndex(index),
-    []
+    (index: number) => {
+      setSelectedIndex(index);
+      setPlayMode("default");
+      toggleTheme(false);
+      setSelectedTab(tabsConfig[index].label);
+    },
+    [tabsConfig, toggleTheme]
   );
+
   return (
     <>
       <NavContainer>
@@ -30,14 +56,23 @@ const TabManager = ({ tabsConfig, defaultIndex = 0 }: TabsProps) => {
         </TabNavContainer>
       </NavContainer>
       <div>
+        {selectedTab === "monsters" && (
+          <ToggleMode playMode={playMode} toggleMode={handleToggleMode} />
+        )}
         {tabsConfig.map((tab, index) => {
           return (
-            <TabContent
-              key={`tabpanel-${index}`}
-              isHidden={selectedIndex !== index}
-            >
-              <Container key={index} content={tab?.content} />
-            </TabContent>
+            <>
+              {playMode === "master" ? (
+                <MasterModeMonsters toggleTheme={toggleTheme} />
+              ) : (
+                <TabContent
+                  key={`tabpanel-${index}`}
+                  isHidden={selectedTab !== tab.label}
+                >
+                  <Container key={index} content={tab?.content} />
+                </TabContent>
+              )}
+            </>
           );
         })}
       </div>
