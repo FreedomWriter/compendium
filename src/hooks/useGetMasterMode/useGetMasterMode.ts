@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMasterMode } from "api";
+
 import { MonstersResponse } from "types";
 
 export const useGetMasterMode = () => {

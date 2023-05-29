@@ -29,10 +29,11 @@ const Button = styled.button<ButtonProps>`
 
   &:hover {
     background-color: ${COLORS.secondary};
+    color: ${COLORS.background};
     background-image: url("/images/background.svg");
     border-radius: 50%;
     border-color: ${COLORS.primary};
-    filter: brightness(80%);
+    filter: brightness(90%);
   }
   ${(props) =>
     props.isDarkMode &&
@@ -54,6 +55,12 @@ const Button = styled.button<ButtonProps>`
       css`
         filter: brightness(100%);
       `}
+    `}
+
+  ${(props) =>
+    props.hideButtons &&
+    css`
+      visibility: hidden;
     `}
 `;
 

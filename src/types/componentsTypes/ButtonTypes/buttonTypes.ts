@@ -5,4 +5,5 @@ export type ButtonProps = {
   onClick: () => void;
   isDarkMode?: boolean;
   isActive?: boolean;
+  hideButtons?: boolean;
 };

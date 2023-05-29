@@ -1,8 +1,4 @@
 import "styled-components";
-interface IPalette {
-  main: string;
-  contrastText: string;
-}
 declare module "styled-components" {
   export interface DefaultTheme {
     background: string;
@@ -15,5 +11,6 @@ declare module "styled-components" {
     darkFont: string;
     default: string;
     isDarkMode: boolean;
+    hideButtons?: boolean;
   }
 }

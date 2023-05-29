@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { NAV_HEIGHT } from "utils";
 
 export const NavContainer = styled.nav``;
 
@@ -8,4 +9,5 @@ export const TabNavContainer = styled.ul`
   display: flex;
   justify-content: center;
   gap: 24px;
+  height: ${NAV_HEIGHT};
 `;

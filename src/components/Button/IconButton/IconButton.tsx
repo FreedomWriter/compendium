@@ -5,7 +5,12 @@ import { useTheme } from "hooks";
 import { IconButtonContainer, Button, ActiveItemIndicator } from "./styled";
 import { ButtonProps } from "types";
 
-const IconButton = ({ children, onClick, isActive }: ButtonProps) => {
+const IconButton = ({
+  children,
+  onClick,
+  isActive,
+  hideButtons,
+}: ButtonProps) => {
   const [theme] = useTheme();
 
   return (
@@ -14,6 +19,7 @@ const IconButton = ({ children, onClick, isActive }: ButtonProps) => {
         isActive={isActive}
         isDarkMode={theme.isDarkMode}
         onClick={onClick}
+        hideButtons={hideButtons}
       >
         {children}
       </Button>

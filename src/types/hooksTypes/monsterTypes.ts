@@ -6,6 +6,7 @@ export type Monster = {
   id: number;
   image: string;
   name: string;
+  isHidden: boolean;
 };
 
 export type MonstersResponse = {
