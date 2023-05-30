@@ -45,7 +45,7 @@
     <a href="https://github.com/FreedomWriter/compendium"><strong>Explore the docs »</strong></a>
     <br /> -->
     <br />
-    <a href="https://github.com/FreedomWriter/compendium">View Demo</a>
+    <a href="https://hyrue-compendium.netlify.app/">View Demo</a>
   </p>
 </div>
 
