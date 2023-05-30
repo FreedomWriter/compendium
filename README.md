@@ -82,8 +82,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img width="1510" alt="desktop view of app" src="https://github.com/FreedomWriter/compendium/assets/50391354/ec7a5b65-e896-4b51-9d11-3926b2ce89f7">
-
+<img width="1510" alt="desktop view of app" src="https://github.com/FreedomWriter/compendium/assets/50391354/b008e991-b1eb-440d-bfdb-2e6cb2f0c8e3"/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -213,10 +212,12 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
   
 ## Tablet:
-  <img width="535" alt="tablet view of app" src="https://github.com/FreedomWriter/compendium/assets/50391354/a91cfac6-0eaf-47d2-95be-2663e8766fc1">
+<img width="350" alt="tablet view" src="https://github.com/FreedomWriter/compendium/assets/50391354/108e27cc-ae86-46d3-9319-e502de491c67"/>
+
   
 ## Mobile:
-  <img width="376" alt="Screenshot 2023-05-30 at 8 41 09 AM" src="https://github.com/FreedomWriter/compendium/assets/50391354/ea4a3e05-8480-4159-b086-cb87b027c2bd">
+<img width="350" alt="mobile view" src="https://github.com/FreedomWriter/compendium/assets/50391354/0e475724-d7b4-44fb-973c-0125cb1608a5"/>
+
 
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
