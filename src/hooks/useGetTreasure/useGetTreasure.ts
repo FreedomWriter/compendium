@@ -4,11 +4,11 @@ import { TreasureResponse } from "types";
 
 export const useGetTreasure = () => {
   const {
-    data: treasure,
+    data: content,
     isLoading,
     isError,
     isSuccess,
   }: TreasureResponse = useQuery(["getTreasure"], getTreasure);
 
-  return { treasure, isLoading, isError, isSuccess };
+  return { content, isLoading, isError, isSuccess };
 };

@@ -4,11 +4,11 @@ import { MonstersResponse } from "types";
 
 export const useGetMonsters = () => {
   const {
-    data: monsters,
+    data: content,
     isLoading,
     isError,
     isSuccess,
   }: MonstersResponse = useQuery(["getMonsters"], getMonsters);
 
-  return { monsters, isLoading, isError, isSuccess };
+  return { content, isLoading, isError, isSuccess };
 };

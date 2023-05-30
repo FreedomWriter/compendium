@@ -5,11 +5,16 @@ import { COLORS } from "utils";
 
 const Button = styled.button<ButtonProps>`
   padding: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid
     ${(props) => (props.isDarkMode ? COLORS.darkPrimary : COLORS.primary)};
   border-radius: 50%;
   background-color: ${(props) =>
-    props.isActive ? COLORS.secondary : "transparent"};
+    props.isActive ? COLORS.secondary : COLORS.secondary};
   outline-color: transparent;
   cursor: pointer;
   color: ${(props) => (props.isActive ? COLORS.secondary : COLORS.primary)};
@@ -20,6 +25,7 @@ const Button = styled.button<ButtonProps>`
     props.isActive &&
     css`
       background-image: url("/images/background.svg");
+      filter: brightness(105%);
     `}
 
   &:focus {
@@ -29,31 +35,33 @@ const Button = styled.button<ButtonProps>`
 
   &:hover {
     background-color: ${COLORS.secondary};
+    color: ${COLORS.background};
     background-image: url("/images/background.svg");
     border-radius: 50%;
     border-color: ${COLORS.primary};
-    filter: brightness(80%);
+    filter: brightness(105%);
   }
   ${(props) =>
-    props.isDarkMode &&
+    props.theme.isDarkMode &&
     css`
       background-image: url("/images/background.svg");
-      background-color: ${COLORS.darkPrimary};
-      border-color: ${COLORS.secondary};
+      background-color: ${COLORS.secondary};
+      border-color: ${COLORS.primary};
       background-image: url("/images/background.svg");
-      filter: brightness(65%);
+      filter: brightness(0%);
 
       &:hover {
         background-color: ${COLORS.primary};
         background-image: url("/images/background.svg");
         border-radius: 50%;
         border-color: ${COLORS.secondary};
-        filter: brightness(100%);
       }
-      ${props.isActive &&
-      css`
-        filter: brightness(100%);
-      `}
+    `}
+
+  ${(props) =>
+    props.hideButtons &&
+    css`
+      visibility: hidden;
     `}
 `;
 
@@ -65,11 +73,13 @@ const IconButtonContainer = styled.div`
   gap: 8px;
 `;
 
-const ActiveItemIndicator = styled.div`
-  height: 5px;
-  width: 32px;
-  background-color: ${(props) => COLORS.secondary};
-  border: 1px solid ${(props) => COLORS.secondary};
+const ActiveItemIndicator = styled.div<{ isActive: boolean }>`
+  height: 8px;
+  width: 40px;
+  background-color: ${COLORS.secondary};
+  border: 1px solid ${COLORS.primary};
+  border-radius: 4px;
+  visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
 
   filter: ${(props) =>
     props.theme.isDarkMode ? "brightness(65%)" : "brightness(80%)"};

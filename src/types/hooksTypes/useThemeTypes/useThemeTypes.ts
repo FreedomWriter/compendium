@@ -4,12 +4,13 @@ export type UseThemeResponse = [CustomTheme, (mode?: boolean) => void];
 
 export type PlayMode = "default" | "master";
 
-export type ToggleModeProps = {
-  toggleMode: (playMode: PlayMode) => void;
+export type TogglePlayModeProps = {
+  togglePlayMode: (playMode: PlayMode) => void;
   playMode: PlayMode;
+  showToggle?: boolean;
 };
 
 export type DarkModeConfigProps = {
-  handleToggleMode: (playMode: PlayMode) => void;
+  handleTogglePlayMode: (playMode: PlayMode) => void;
   playMode: PlayMode;
 };

@@ -7,7 +7,7 @@ export type InputProps = {
   id: string;
   name: string;
   value?: any;
-  checked: boolean;
+  defaultChecked: boolean;
   onClick?: () => void;
 };
 

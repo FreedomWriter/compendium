@@ -1,12 +1,12 @@
 import React from "react";
-import { DarkModeConfigProps, PlayMode, ToggleModeProps } from "types";
+import { DarkModeConfigProps, PlayMode, TogglePlayModeProps } from "types";
 
 import { Field, Toggle } from "components";
 import { Container } from "./styled";
 
 const playModeToggleConfig = ({
   playMode,
-  handleToggleMode,
+  handleTogglePlayMode,
 }: DarkModeConfigProps): Field[] => [
   {
     id: "default",
@@ -14,7 +14,7 @@ const playModeToggleConfig = ({
     value: "default",
     isChecked: playMode === "default",
     name: "theme",
-    handleClick: () => handleToggleMode("default"),
+    handleClick: () => handleTogglePlayMode("default"),
   },
   {
     id: "masterMode",
@@ -22,20 +22,24 @@ const playModeToggleConfig = ({
     value: "master",
     isChecked: playMode === "master",
     name: "theme",
-    handleClick: () => handleToggleMode("master"),
+    handleClick: () => handleTogglePlayMode("master"),
   },
 ];
 
-function ToggleMode({ playMode, toggleMode }: ToggleModeProps) {
-  const handleToggleMode = (playMode: PlayMode) => toggleMode(playMode);
+function TogglePlayMode({
+  playMode,
+  togglePlayMode,
+  showToggle,
+}: TogglePlayModeProps) {
+  const handleTogglePlayMode = (playMode: PlayMode) => togglePlayMode(playMode);
   return (
-    <Container>
+    <Container showToggle={showToggle}>
       <Toggle
         legend="Toggle Play Mode"
-        fields={playModeToggleConfig({ handleToggleMode, playMode })}
+        fields={playModeToggleConfig({ handleTogglePlayMode, playMode })}
       />
     </Container>
   );
 }
 
-export { ToggleMode };
+export { TogglePlayMode };

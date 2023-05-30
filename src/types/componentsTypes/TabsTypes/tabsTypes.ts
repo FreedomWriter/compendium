@@ -1,5 +1,3 @@
-import { Creature, Equipment, Material, Monster, Treasure } from "types";
-
 export type TabsProps = {
   tabsConfig: TabConfig[];
   defaultIndex?: number;
@@ -11,8 +9,15 @@ export type TabContentProps = {
   children: React.ReactNode;
 };
 
-export interface TabConfig {
+export type TabConfig = {
   label: string;
-  content: Creature[] | Equipment[] | Material[] | Monster[] | Treasure[];
+
   icon: JSX.Element;
-}
+};
+
+export type Tab =
+  | "creatures"
+  | "equipment"
+  | "materials"
+  | "monsters"
+  | "treasure";

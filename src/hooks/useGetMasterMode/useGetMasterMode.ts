@@ -1,14 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMasterMode } from "api";
+
 import { MonstersResponse } from "types";
 
 export const useGetMasterMode = () => {
   const {
-    data: masterModeMonsters,
+    data: content,
     isLoading,
     isError,
     isSuccess,
   }: MonstersResponse = useQuery(["getMasterMode"], getMasterMode);
-  console.log({ masterModeMonsters });
-  return { masterModeMonsters, isLoading, isError, isSuccess };
+
+  return { content, isLoading, isError, isSuccess };
 };

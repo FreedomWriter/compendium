@@ -4,11 +4,11 @@ import { EquipmentResponse } from "types";
 
 export const useGetEquipment = () => {
   const {
-    data: equipment,
+    data: content,
     isLoading,
     isError,
     isSuccess,
   }: EquipmentResponse = useQuery(["getEquipment"], getEquipment);
 
-  return { equipment, isLoading, isError, isSuccess };
+  return { content, isLoading, isError, isSuccess };
 };
