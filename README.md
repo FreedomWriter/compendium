@@ -31,8 +31,8 @@
 <!-- PROJECT LOGO -->
 <br />
   <div align="center">
-    <a href="https://github.com/FreedomWriter/compendium"><div style="width: 250px; height: 250px; ">
-    <img src="https://github.com/FreedomWriter/compendium/assets/50391354/b33b86a1-540a-457c-8137-ec46aa5a925a" alt="Image" width="250" height="250" >
+    <a href="https://github.com/FreedomWriter/compendium"><div style="width: 250px; height: 250px;">
+    <img src="https://github.com/FreedomWriter/compendium/assets/50391354/e5003306-9f69-4485-aed1-6c1ed2611c67" alt="Image" width="250" height="250" >
   </div>
 
   </a>
