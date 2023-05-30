@@ -1,49 +1,48 @@
 import React from "react";
-import { Tile } from "components/Tile";
-import { FunctionComponent } from "react";
-import { Content } from "types";
+
+import { Content, GalleryProps } from "types";
+import { GalleryButton, Tile } from "components";
+
 import { ButtonContainer, Container, Grid } from "./styled";
-import { GalleryButton } from "components";
+import { getNumOfItemsToDisplay } from "./helpers";
 
-interface GalleryProps {
-  [x: string]: any;
-  content: Content[];
-  category?: string;
-  playMode?: string;
-}
-
-const Gallery: FunctionComponent<GalleryProps> = ({
+const Gallery: React.FunctionComponent<GalleryProps> = ({
   content,
   category,
   playMode,
 }) => {
-  let itemsToDisplay = 12; // 12 for tablet, 15 for desktop, content.length - 1 for mobile
+  const [numOfItemsToDisplay, setNumOfItemsToDisplay] = React.useState<number>(
+    getNumOfItemsToDisplay(content.length)
+  );
   const [indexes, setIndexes] = React.useState({
     start: 0,
-    end: itemsToDisplay,
+    end: numOfItemsToDisplay,
   });
   const [currentlyViewing, setCurrentlyViewing] = React.useState(
     content.slice(indexes.start, indexes.end)
   );
 
   const handleNext = () => {
-    if (indexes.end + itemsToDisplay >= content.length) return;
+    if (indexes.end + numOfItemsToDisplay >= content.length) return;
     const updatedIndexes = {
       start: indexes.end,
-      end: indexes.end + itemsToDisplay,
+      end: indexes.end + numOfItemsToDisplay,
     };
 
     setIndexes(updatedIndexes);
     setCurrentlyViewing(
-      content.slice(updatedIndexes.end, updatedIndexes.end + itemsToDisplay)
+      content.slice(
+        updatedIndexes.end,
+        updatedIndexes.end + numOfItemsToDisplay
+      )
     );
   };
 
   const handlePrev = () => {
     if (indexes.start === 0) return;
     const updatedIndexes = {
-      start: indexes.start - itemsToDisplay,
-      end: indexes.end - itemsToDisplay,
+      start: indexes.start - numOfItemsToDisplay,
+      end: indexes.end - numOfItemsToDisplay,
     };
 
     setIndexes(updatedIndexes);
@@ -55,17 +54,30 @@ const Gallery: FunctionComponent<GalleryProps> = ({
   React.useEffect(() => {
     setIndexes({
       start: 0,
-      end: itemsToDisplay,
+      end: numOfItemsToDisplay,
     });
-    setCurrentlyViewing(content.slice(0, itemsToDisplay));
-  }, [category, content, itemsToDisplay, playMode]);
+    setCurrentlyViewing(content.slice(0, numOfItemsToDisplay));
+  }, [category, content, numOfItemsToDisplay, playMode]);
+
+  React.useEffect(() => {
+    const handleResize = () => {
+      setNumOfItemsToDisplay(getNumOfItemsToDisplay(content.length));
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [content.length]);
 
   return (
     <Container>
       {/* <p>{category}</p> */}
       <ButtonContainer>
         <GalleryButton hideButtons={indexes.start === 0} onClick={handlePrev}>
-          prev
+          ←
         </GalleryButton>
       </ButtonContainer>
       <>
@@ -79,10 +91,10 @@ const Gallery: FunctionComponent<GalleryProps> = ({
       </>
       <ButtonContainer>
         <GalleryButton
-          hideButtons={indexes.end + itemsToDisplay >= content.length - 1}
+          hideButtons={indexes.end + numOfItemsToDisplay >= content.length - 1}
           onClick={handleNext}
         >
-          next
+          →
         </GalleryButton>
       </ButtonContainer>
     </Container>

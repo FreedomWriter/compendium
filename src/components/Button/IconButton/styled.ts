@@ -5,6 +5,11 @@ import { COLORS } from "utils";
 
 const Button = styled.button<ButtonProps>`
   padding: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   border: 2px solid
     ${(props) => (props.isDarkMode ? COLORS.darkPrimary : COLORS.primary)};
   border-radius: 50%;
@@ -72,11 +77,13 @@ const IconButtonContainer = styled.div`
   gap: 8px;
 `;
 
-const ActiveItemIndicator = styled.div`
-  height: 5px;
-  width: 32px;
-  background-color: ${(props) => COLORS.secondary};
-  border: 1px solid ${(props) => COLORS.secondary};
+const ActiveItemIndicator = styled.div<{ isActive: boolean }>`
+  height: 8px;
+  width: 40px;
+  background-color: ${COLORS.secondary};
+  border: 1px solid ${COLORS.primary};
+  border-radius: 4px;
+  visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
 
   filter: ${(props) =>
     props.theme.isDarkMode ? "brightness(65%)" : "brightness(80%)"};

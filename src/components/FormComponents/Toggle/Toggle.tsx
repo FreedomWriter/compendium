@@ -30,7 +30,7 @@ const Toggle = ({ legend, fields }: ToggleProps) => {
               id={field.id}
               name={field.name}
               value={field.value}
-              checked={field.isChecked}
+              defaultChecked={field.isChecked}
               onClick={field.handleClick}
             />
           </Container>

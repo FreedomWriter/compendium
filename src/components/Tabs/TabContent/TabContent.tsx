@@ -2,8 +2,9 @@ import React from "react";
 
 import { Gallery } from "components/Gallery";
 import { Content, PlayMode } from "types";
-import { useFetchContent } from "hooks";
+import { CreatureFilter, useFetchContent } from "hooks";
 import { TogglePlayMode } from "components/TogglePlayMode";
+import { ToggleCreatureMode } from "components/ToggleCreatureMode";
 
 export type TabContentProps = {
   selectedTab: string;
@@ -12,10 +13,13 @@ export type TabContentProps = {
 
 const TabContent = ({ selectedTab, toggleTheme }: TabContentProps) => {
   const [playMode, setPlayMode] = React.useState<PlayMode>("default");
+  const [creatureFilter, setCreatureFilter] =
+    React.useState<CreatureFilter>("all");
 
   const { content, isError, isLoading } = useFetchContent({
     type: selectedTab,
     playMode,
+    creatureFilter,
   });
 
   if (isError) {
@@ -27,22 +31,25 @@ const TabContent = ({ selectedTab, toggleTheme }: TabContentProps) => {
   const handleTogglePlayMode = (playMode: PlayMode) => {
     setPlayMode(playMode);
     const isDefaultMode: boolean = playMode === "default" ? false : true;
-    console.log({ isDefaultMode });
+
     toggleTheme(isDefaultMode);
   };
 
+  const handleToggleCreatureMode = (option: CreatureFilter) =>
+    setCreatureFilter(option);
+
   return (
     <>
-      <TogglePlayMode
+      <ToggleCreatureMode
         showToggle={content[0].category === "creatures"}
-        playMode={playMode}
-        TogglePlayMode={handleTogglePlayMode}
+        handleToggle={handleToggleCreatureMode}
+        currFilter={creatureFilter}
       />
 
       <TogglePlayMode
         showToggle={content[0].category === "monsters"}
         playMode={playMode}
-        TogglePlayMode={handleTogglePlayMode}
+        togglePlayMode={handleTogglePlayMode}
       />
 
       <Gallery

@@ -6,5 +6,9 @@ export const Container = styled.div`
 
   ${media.medium`
   display: block;
+  font-weight: bold;
+  font-size: 24px;
+  width: 100%;
+  height: 100%;
 `}
 `;

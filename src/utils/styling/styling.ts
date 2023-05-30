@@ -10,7 +10,7 @@ export const GALLERY_COL_GAP_SMALL = 16;
 export const GALLERY_ROW_GAP_MEDIUM = 40;
 export const GALLERY_COL_GAP_MEDIUM = 40;
 export const GALLERY_ROWS_MEDIUM = 3;
-export const GALLERY_COLS_MEDIUM = 4;
+export const GALLERY_COLS_MEDIUM = 3;
 
 export const GALLERY_ROWS_LARGE = 3;
 export const GALLERY_COLS_LARGE = 5;
@@ -29,10 +29,10 @@ export const COLORS: ColorScheme = {
   isDarkMode: false,
 };
 
-const sizes = {
-  large: 990,
-  medium: 500,
+export const BREAKPOINTS = {
   small: 500,
+  medium: 500,
+  large: 990,
 };
 
 type MediaQueryFunction = (
@@ -40,10 +40,10 @@ type MediaQueryFunction = (
 ) => ReturnType<typeof css>;
 
 export const media: Record<string, MediaQueryFunction> = Object.keys(
-  sizes
+  BREAKPOINTS
 ).reduce<Record<string, MediaQueryFunction>>((acc, label) => {
   acc[label] = (...args) => css`
-    @media (min-width: ${sizes[label as keyof typeof sizes]}px) {
+    @media (min-width: ${BREAKPOINTS[label as keyof typeof BREAKPOINTS]}px) {
       ${css(...args)}
     }
   `;

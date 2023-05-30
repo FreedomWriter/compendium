@@ -9,8 +9,15 @@ export type TabContentProps = {
   children: React.ReactNode;
 };
 
-export interface TabConfig {
+export type TabConfig = {
   label: string;
 
   icon: JSX.Element;
-}
+};
+
+export type Tab =
+  | "creatures"
+  | "equipment"
+  | "materials"
+  | "monsters"
+  | "treasure";

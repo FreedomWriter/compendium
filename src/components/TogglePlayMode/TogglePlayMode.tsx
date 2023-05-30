@@ -28,10 +28,10 @@ const playModeToggleConfig = ({
 
 function TogglePlayMode({
   playMode,
-  TogglePlayMode,
+  togglePlayMode,
   showToggle,
 }: TogglePlayModeProps) {
-  const handleTogglePlayMode = (playMode: PlayMode) => TogglePlayMode(playMode);
+  const handleTogglePlayMode = (playMode: PlayMode) => togglePlayMode(playMode);
   return (
     <Container showToggle={showToggle}>
       <Toggle

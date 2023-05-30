@@ -1,19 +1,14 @@
 import React from "react";
 
+import { CATEGORIES } from "./helpers";
+import { NavProps, Tab } from "types";
+
 import { IconButton } from "components";
 
 import { NavContainer, TabNavContainer } from "./styled";
 
-import { CATEGORIES } from "./helpers";
-
-export type NavProps = {
-  handleClick: (index: number, selectedTabLabel: string) => void;
-  selectedIndex: number;
-  toggleTheme: (isDarkMode: boolean) => void;
-};
-
 const Nav = ({ selectedIndex, handleClick }: NavProps) => {
-  const handleTabClick = (index: number, currTab: string) => {
+  const handleTabClick = (index: number, currTab: Tab) => {
     handleClick(index, currTab);
   };
 

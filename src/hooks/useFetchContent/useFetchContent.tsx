@@ -6,22 +6,22 @@ import {
   useGetMonsters,
   useGetTreasure,
 } from "hooks";
-import { PlayMode } from "types";
+import { FetchContentProps } from "types";
 import { useGetMasterMode } from "hooks/useGetMasterMode";
 
-type FetchContentProps = {
-  type: string;
-  playMode?: PlayMode;
-  option?: "all" | "edible" | "inedible";
-};
+export type CreatureFilter = "all" | "edible" | "inedible";
 
-const useFetchContent = ({ option, playMode, type }: FetchContentProps) => {
+const useFetchContent = ({
+  creatureFilter,
+  playMode,
+  type,
+}: FetchContentProps) => {
   let selectedHookRef: React.MutableRefObject<any> = React.useRef();
   let hookArgsRef: React.MutableRefObject<any> = React.useRef();
 
   switch (type) {
     case "creatures":
-      hookArgsRef.current = option;
+      hookArgsRef.current = creatureFilter;
       selectedHookRef.current = useGetCreatures;
       break;
     case "equipment":
@@ -31,7 +31,7 @@ const useFetchContent = ({ option, playMode, type }: FetchContentProps) => {
       selectedHookRef.current = useGetMaterials;
       break;
     case "monsters":
-      hookArgsRef.current = option;
+      hookArgsRef.current = creatureFilter;
       if (playMode === "default") {
         selectedHookRef.current = useGetMonsters;
       } else {
@@ -43,7 +43,7 @@ const useFetchContent = ({ option, playMode, type }: FetchContentProps) => {
       break;
 
     default:
-      hookArgsRef.current = option;
+      hookArgsRef.current = creatureFilter;
       selectedHookRef.current = useGetCreatures; // Fallback to a default hook
       break;
   }
