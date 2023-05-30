@@ -10,7 +10,7 @@ import {
   GALLERY_ROWS_SMALL,
   GALLERY_ROW_GAP_MEDIUM,
   GALLERY_ROW_GAP_SMALL,
-  NAV_HEIGHT,
+  TAB_HEIGHT,
   media,
 } from "utils";
 
@@ -46,12 +46,7 @@ export const Container = styled.section`
   justify-content: center;
   align-items: center;
   padding: 16px 0 40px 0;
-  height: calc(100vh - ${NAV_HEIGHT + 216}px); // account for padding
-  ${media.large`
-  // toggles, which are only visible for certain pages,
-  // move from under the tabs to next to them, account for that
-    height: calc(100vh - ${NAV_HEIGHT + 112}px); // account for padding
-  `}
+  height: ${TAB_HEIGHT};
 `;
 
 export const ButtonContainer = styled.div`

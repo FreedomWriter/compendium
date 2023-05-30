@@ -5,6 +5,7 @@ import { Content, PlayMode } from "types";
 import { CreatureFilter, useFetchContent } from "hooks";
 import { TogglePlayMode } from "components/TogglePlayMode";
 import { ToggleCreatureMode } from "components/ToggleCreatureMode";
+import { Loading } from "components";
 
 export type TabContentProps = {
   selectedTab: string;
@@ -26,7 +27,7 @@ const TabContent = ({ selectedTab, toggleTheme }: TabContentProps) => {
     return <h1>OH NOOOOO</h1>;
   }
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading />;
   }
   const handleTogglePlayMode = (playMode: PlayMode) => {
     setPlayMode(playMode);

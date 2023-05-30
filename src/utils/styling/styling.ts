@@ -49,3 +49,12 @@ export const media: Record<string, MediaQueryFunction> = Object.keys(
   `;
   return acc;
 }, {});
+
+export const TAB_HEIGHT = `calc(100vh - ${
+  NAV_HEIGHT + 216
+}px); // account for padding
+  ${media.large`
+  // toggles, which are only visible for certain pages,
+  // move from under the tabs to next to them, account for that
+    height: calc(100vh - ${NAV_HEIGHT + 112}px); // account for padding
+  `}`;
