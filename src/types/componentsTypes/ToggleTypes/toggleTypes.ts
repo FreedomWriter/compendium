@@ -1,4 +1,4 @@
-import { CreatureFilter } from "hooks";
+import { CreatureFilter } from "types";
 
 export type CreatureConfig = {
   currFilter: CreatureFilter;

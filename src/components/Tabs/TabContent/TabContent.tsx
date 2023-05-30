@@ -1,8 +1,8 @@
 import React from "react";
 
 import { Gallery } from "components/Gallery";
-import { Content, PlayMode } from "types";
-import { CreatureFilter, useFetchContent } from "hooks";
+import { CreatureFilter, Content, PlayMode } from "types";
+import { useFetchContent } from "hooks";
 import { TogglePlayMode } from "components/TogglePlayMode";
 import { ToggleCreatureMode } from "components/ToggleCreatureMode";
 import { Loading } from "components";

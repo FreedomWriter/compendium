@@ -9,8 +9,6 @@ import {
 import { FetchContentProps } from "types";
 import { useGetMasterMode } from "hooks/useGetMasterMode";
 
-export type CreatureFilter = "all" | "edible" | "inedible";
-
 const useFetchContent = ({
   creatureFilter,
   playMode,
