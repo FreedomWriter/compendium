@@ -23,6 +23,14 @@ const TabContent = ({ selectedTab, toggleTheme }: TabContentProps) => {
     creatureFilter,
   });
 
+  React.useEffect(() => {
+    if (selectedTab === "monsters") {
+      const isDefaultMode: boolean = playMode === "default" ? false : true;
+
+      toggleTheme(isDefaultMode);
+    }
+  }, [playMode, selectedTab, toggleTheme]);
+
   if (isError) {
     return <h1>OH NOOOOO</h1>;
   }
@@ -31,9 +39,9 @@ const TabContent = ({ selectedTab, toggleTheme }: TabContentProps) => {
   }
   const handleTogglePlayMode = (playMode: PlayMode) => {
     setPlayMode(playMode);
-    const isDefaultMode: boolean = playMode === "default" ? false : true;
+    // const isDefaultMode: boolean = playMode === "default" ? false : true;
 
-    toggleTheme(isDefaultMode);
+    // toggleTheme(isDefaultMode);
   };
 
   const handleToggleCreatureMode = (option: CreatureFilter) =>

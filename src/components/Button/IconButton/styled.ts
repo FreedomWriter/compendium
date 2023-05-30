@@ -14,7 +14,7 @@ const Button = styled.button<ButtonProps>`
     ${(props) => (props.isDarkMode ? COLORS.darkPrimary : COLORS.primary)};
   border-radius: 50%;
   background-color: ${(props) =>
-    props.isActive ? COLORS.secondary : "transparent"};
+    props.isActive ? COLORS.secondary : COLORS.secondary};
   outline-color: transparent;
   cursor: pointer;
   color: ${(props) => (props.isActive ? COLORS.secondary : COLORS.primary)};
@@ -25,6 +25,7 @@ const Button = styled.button<ButtonProps>`
     props.isActive &&
     css`
       background-image: url("/images/background.svg");
+      filter: brightness(105%);
     `}
 
   &:focus {
@@ -38,28 +39,23 @@ const Button = styled.button<ButtonProps>`
     background-image: url("/images/background.svg");
     border-radius: 50%;
     border-color: ${COLORS.primary};
-    filter: brightness(90%);
+    filter: brightness(105%);
   }
   ${(props) =>
-    props.isDarkMode &&
+    props.theme.isDarkMode &&
     css`
       background-image: url("/images/background.svg");
-      background-color: ${COLORS.darkPrimary};
-      border-color: ${COLORS.secondary};
+      background-color: ${COLORS.secondary};
+      border-color: ${COLORS.primary};
       background-image: url("/images/background.svg");
-      filter: brightness(65%);
+      filter: brightness(0%);
 
       &:hover {
         background-color: ${COLORS.primary};
         background-image: url("/images/background.svg");
         border-radius: 50%;
         border-color: ${COLORS.secondary};
-        filter: brightness(100%);
       }
-      ${props.isActive &&
-      css`
-        filter: brightness(100%);
-      `}
     `}
 
   ${(props) =>
