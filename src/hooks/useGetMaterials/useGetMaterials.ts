@@ -4,11 +4,11 @@ import { MaterialsResponse } from "types";
 
 export const useGetMaterials = () => {
   const {
-    data: materials,
+    data: content,
     isLoading,
     isError,
     isSuccess,
   }: MaterialsResponse = useQuery(["getMaterials"], getMaterials);
 
-  return { materials, isLoading, isError, isSuccess };
+  return { content, isLoading, isError, isSuccess };
 };

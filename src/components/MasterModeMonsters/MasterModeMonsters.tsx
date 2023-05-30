@@ -12,7 +12,7 @@ const MasterModeMonsters = ({
   toggleTheme: (isDarkMode: boolean) => void;
   isHidden: boolean;
 }) => {
-  const { masterModeMonsters, isError, isLoading } = useGetMasterMode();
+  const { content, isError, isLoading } = useGetMasterMode();
 
   if (isError) {
     return <h1>OH NOOOOO</h1>;
@@ -21,8 +21,6 @@ const MasterModeMonsters = ({
     return <h1>Loading...</h1>;
   }
 
-  return (
-    <Gallery isHidden={isHidden} content={masterModeMonsters as Monster[]} />
-  );
+  return <Gallery isHidden={isHidden} content={content as Monster[]} />;
 };
 export { MasterModeMonsters };

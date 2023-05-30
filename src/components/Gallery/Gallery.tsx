@@ -8,10 +8,15 @@ import { GalleryButton } from "components";
 interface GalleryProps {
   [x: string]: any;
   content: Content[];
-  isHidden: boolean;
+  category?: string;
+  playMode?: string;
 }
 
-const Gallery: FunctionComponent<GalleryProps> = ({ content, isHidden }) => {
+const Gallery: FunctionComponent<GalleryProps> = ({
+  content,
+  category,
+  playMode,
+}) => {
   let itemsToDisplay = 12; // 12 for tablet, 15 for desktop, content.length - 1 for mobile
   const [indexes, setIndexes] = React.useState({
     start: 0,
@@ -47,20 +52,31 @@ const Gallery: FunctionComponent<GalleryProps> = ({ content, isHidden }) => {
     );
   };
 
+  React.useEffect(() => {
+    setIndexes({
+      start: 0,
+      end: itemsToDisplay,
+    });
+    setCurrentlyViewing(content.slice(0, itemsToDisplay));
+  }, [category, content, itemsToDisplay, playMode]);
+
   return (
-    <Container isHidden={isHidden}>
+    <Container>
+      {/* <p>{category}</p> */}
       <ButtonContainer>
         <GalleryButton hideButtons={indexes.start === 0} onClick={handlePrev}>
           prev
         </GalleryButton>
       </ButtonContainer>
-      <Grid>
-        {currentlyViewing.map((item: Content) => (
-          <React.Fragment key={item.id}>
-            <Tile imgSrc={item.image} name={item.name} />
-          </React.Fragment>
-        ))}
-      </Grid>
+      <>
+        <Grid>
+          {currentlyViewing.map((item: Content) => (
+            <React.Fragment key={item.id}>
+              <Tile imgSrc={item.image} name={item.name} />
+            </React.Fragment>
+          ))}
+        </Grid>
+      </>
       <ButtonContainer>
         <GalleryButton
           hideButtons={indexes.end + itemsToDisplay >= content.length - 1}

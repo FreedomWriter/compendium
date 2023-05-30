@@ -1,5 +1,3 @@
-import { Creature, Equipment, Material, Monster, Treasure } from "types";
-
 export type TabsProps = {
   tabsConfig: TabConfig[];
   defaultIndex?: number;
@@ -13,6 +11,6 @@ export type TabContentProps = {
 
 export interface TabConfig {
   label: string;
-  content: Creature[] | Equipment[] | Material[] | Monster[] | Treasure[];
+
   icon: JSX.Element;
 }

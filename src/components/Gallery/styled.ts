@@ -40,8 +40,8 @@ export const Grid = styled.div`
   `}
 `;
 
-export const Container = styled.section<{ isHidden: boolean }>`
-  display: ${(props) => (props.isHidden ? "none" : "flex")};
+export const Container = styled.section`
+  display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px 0 40px 0;
