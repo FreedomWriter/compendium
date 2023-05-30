@@ -2,9 +2,8 @@ import styled, { css } from "styled-components";
 import { media } from "utils";
 
 export const Container = styled.div<{ showToggle?: boolean }>`
-  display: flex;
+  display: none;
   justify-content: center;
-  visibility: hidden;
   padding-bottom: 16px;
 
   ${media.large`
@@ -19,6 +18,6 @@ export const Container = styled.div<{ showToggle?: boolean }>`
   ${(props) =>
     props.showToggle &&
     css`
-      visibility: visible;
+      display: flex;
     `}
 `;

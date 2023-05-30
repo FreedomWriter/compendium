@@ -75,6 +75,7 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({
   return (
     <Container>
       {/* <p>{category}</p> */}
+
       <ButtonContainer>
         <GalleryButton hideButtons={indexes.start === 0} onClick={handlePrev}>
           ←

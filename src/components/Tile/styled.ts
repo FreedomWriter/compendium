@@ -1,5 +1,14 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { COLORS, media } from "utils";
+
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
 
 export const Article = styled.article`
   position: relative;
@@ -32,6 +41,7 @@ export const Image = styled.img`
   border-radius: 16px;
   border-radius: 16px;
   border: 2px solid ${COLORS.secondary};
+  animation: ${fadeIn} 1s ease forwards;
 
   ${media.medium`
   
@@ -54,6 +64,7 @@ export const Title = styled.div`
   justify-content: center;
   align-items: center;
   border: 2px solid ${COLORS.secondary};
+  animation: ${fadeIn} 1s ease forwards;
 
   ${media.medium`
     border: 4px solid ${COLORS.secondary};
