@@ -6,7 +6,7 @@ export const getNumOfItemsToDisplay = (contentLength: number) => {
     return 15;
   }
   if (windowWidth >= BREAKPOINTS.medium) {
-    return 9;
+    return 12;
   }
   return contentLength;
 };

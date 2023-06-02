@@ -19,7 +19,7 @@ export const Grid = styled.div`
   height: 100%;
 
   display: grid;
-  margin: 0 auto;
+  margin: 16px auto;
   grid-template-rows: ${GALLERY_ROWS_SMALL};
   grid-template-columns: repeat(${GALLERY_COLS_SMALL}, 1fr);
   align-items: center;
@@ -28,6 +28,7 @@ export const Grid = styled.div`
   grid-column-gap: ${GALLERY_COL_GAP_SMALL}px;
 
   ${media.medium`
+  display: grid;
     grid-template-rows: repeat(${GALLERY_ROWS_MEDIUM}, 1fr);
     grid-template-columns: repeat(${GALLERY_COLS_MEDIUM}, 1fr);
     grid-row-gap: ${GALLERY_ROW_GAP_MEDIUM}px;
@@ -37,34 +38,32 @@ export const Grid = styled.div`
   ${media.large`
     grid-template-rows: repeat(${GALLERY_ROWS_LARGE}, 1fr);
     grid-template-columns: repeat(${GALLERY_COLS_LARGE}, 1fr);
- 
+    margin: 0 auto;
   `}
 `;
 
-export const Container = styled.section`
+export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 16px 0 40px 0;
   height: calc(100vh - ${NAV_HEIGHT + 216}px); // account for padding
 
-  ${media.medium`
-    position: absolute;
-    top: ${NAV_HEIGHT + 40}px;
-    left: 0;
-    right: 0;
-  `}
-
   ${media.large`
   // toggles, which are only visible for certain pages,
   // move from under the tabs to next to them, account for that
     height: calc(100vh - ${NAV_HEIGHT + 112}px); // account for padding
-    position: static;
+ 
   `}
 `;
 
 export const ButtonContainer = styled.div`
-  width: 100%;
-  padding: 16px 0;
-  font-size: 32px;
+  display: none;
+  ${media.medium`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 16px ;
+    font-size: 32px;
+  `}
 `;

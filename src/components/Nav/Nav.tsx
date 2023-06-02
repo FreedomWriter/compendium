@@ -22,6 +22,7 @@ const Nav = ({ selectedIndex, handleClick }: NavProps) => {
                 isActive={selectedIndex === index}
                 onClick={() => handleTabClick(index, cat)}
                 icon={cat}
+                useIndicator
               />
             </li>
           ))}

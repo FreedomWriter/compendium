@@ -7,4 +7,5 @@ export type ButtonProps = {
   isActive?: boolean;
   hideButtons?: boolean;
   icon?: string;
+  useIndicator?: boolean;
 };

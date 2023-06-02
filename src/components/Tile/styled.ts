@@ -18,13 +18,9 @@ export const Article = styled.article`
   width: 148px;
   height: 148px;
 
-  ${media.medium`
-    width: 164px;
-    height: 164px;
-  `}
   ${media.large`
-    width: 172px;
-    height: 172px;
+    width: 156px;
+    height: 156px;
   `}
 `;
 

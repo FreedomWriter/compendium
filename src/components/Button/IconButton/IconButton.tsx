@@ -12,6 +12,7 @@ const IconButton = ({
   hideButtons,
   icon,
   children,
+  useIndicator,
 }: ButtonProps) => {
   const [theme] = useTheme();
 
@@ -32,7 +33,7 @@ const IconButton = ({
         )}
         <VisuallyHidden>{icon}</VisuallyHidden>
       </Button>
-      <ActiveItemIndicator isActive={!!isActive} />
+      {useIndicator && <ActiveItemIndicator isActive={!!isActive} />}
     </IconButtonContainer>
   );
 };
