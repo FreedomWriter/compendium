@@ -7,9 +7,9 @@ export const GALLERY_COLS_SMALL = 2;
 export const GALLERY_ROW_GAP_SMALL = 48;
 export const GALLERY_COL_GAP_SMALL = 16;
 
-export const GALLERY_ROW_GAP_MEDIUM = 40;
-export const GALLERY_COL_GAP_MEDIUM = 40;
-export const GALLERY_ROWS_MEDIUM = 3;
+export const GALLERY_ROW_GAP_MEDIUM = 32;
+export const GALLERY_COL_GAP_MEDIUM = 32;
+export const GALLERY_ROWS_MEDIUM = 4;
 export const GALLERY_COLS_MEDIUM = 3;
 
 export const GALLERY_ROWS_LARGE = 3;
@@ -31,7 +31,7 @@ export const COLORS: ColorScheme = {
 
 export const BREAKPOINTS = {
   small: 500,
-  medium: 500,
+  medium: 760,
   large: 990,
 };
 
