@@ -6,6 +6,7 @@ import { useFetchContent } from "hooks";
 import { TogglePlayMode } from "components/TogglePlayMode";
 import { ToggleCreatureMode } from "components/ToggleCreatureMode";
 import { Loading } from "components";
+import { Section } from "./styled";
 
 export type TabContentProps = {
   selectedTab: string;
@@ -39,16 +40,13 @@ const TabContent = ({ selectedTab, toggleTheme }: TabContentProps) => {
   }
   const handleTogglePlayMode = (playMode: PlayMode) => {
     setPlayMode(playMode);
-    // const isDefaultMode: boolean = playMode === "default" ? false : true;
-
-    // toggleTheme(isDefaultMode);
   };
 
   const handleToggleCreatureMode = (option: CreatureFilter) =>
     setCreatureFilter(option);
 
   return (
-    <>
+    <Section>
       <ToggleCreatureMode
         showToggle={content[0].category === "creatures"}
         handleToggle={handleToggleCreatureMode}
@@ -66,7 +64,7 @@ const TabContent = ({ selectedTab, toggleTheme }: TabContentProps) => {
         content={content as Content[]}
         playMode={playMode}
       />
-    </>
+    </Section>
   );
 };
 

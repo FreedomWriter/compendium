@@ -74,22 +74,18 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({
 
   return (
     <Container>
-      {/* <p>{category}</p> */}
-
       <ButtonContainer>
         <GalleryButton hideButtons={indexes.start === 0} onClick={handlePrev}>
           ←
         </GalleryButton>
       </ButtonContainer>
-      <>
-        <Grid>
-          {currentlyViewing.map((item: Content) => (
-            <React.Fragment key={item.id}>
-              <Tile imgSrc={item.image} name={item.name} />
-            </React.Fragment>
-          ))}
-        </Grid>
-      </>
+      <Grid>
+        {currentlyViewing.map((item: Content) => (
+          <React.Fragment key={item.id}>
+            <Tile imgSrc={item.image} name={item.name} />
+          </React.Fragment>
+        ))}
+      </Grid>
       <ButtonContainer>
         <GalleryButton
           hideButtons={indexes.end + numOfItemsToDisplay >= content.length - 1}
