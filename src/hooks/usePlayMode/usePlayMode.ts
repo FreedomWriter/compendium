@@ -20,7 +20,7 @@ export type UsePlayMode = [CustomTheme, (manual?: boolean) => void];
 
 const usePlayMode = (): UsePlayMode => {
   const [isDefaultPlayMode, setIsDefaultPlayMode] = useState(false);
-  const [playMode, setPlayMode] = useState<CustomTheme>({
+  const [playModeTheme, setPlayModeTheme] = useState<CustomTheme>({
     ...defaultPlayMode,
     isDefaultPlayMode,
   });
@@ -36,10 +36,15 @@ const usePlayMode = (): UsePlayMode => {
     const selectedPlayMode = isDefaultPlayMode
       ? masterPlayMode
       : defaultPlayMode;
-    setPlayMode({ ...selectedPlayMode, isDefaultPlayMode });
+    setPlayModeTheme({ ...selectedPlayMode, isDefaultPlayMode });
   }, [isDefaultPlayMode]);
 
-  return [playMode, togglePlayMode];
+  const memoizedPlayModeTheme = React.useMemo(
+    () => playModeTheme,
+    [playModeTheme]
+  );
+
+  return [memoizedPlayModeTheme, togglePlayMode];
 };
 
 export { usePlayMode };
