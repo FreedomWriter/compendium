@@ -7,12 +7,17 @@ import { PlayMode, CreatureFilter } from "types";
 
 function App() {
   const [theme, toggleTheme] = useTheme();
-
   const [selectedTab, setSelectedTab] = React.useState("creatures");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [playMode, setPlayMode] = React.useState<PlayMode>("default");
   const [creatureFilter, setCreatureFilter] =
     React.useState<CreatureFilter>("all");
+
+  const { content, isError, isLoading } = useFetchContent({
+    type: selectedTab,
+    playMode,
+    creatureFilter,
+  });
 
   const handleTabClick = React.useCallback(
     (index: number, selectedTabLabel: string) => {
@@ -22,26 +27,23 @@ function App() {
     },
     [toggleTheme]
   );
-  const { content, isError, isLoading } = useFetchContent({
-    type: selectedTab,
-    playMode,
-    creatureFilter,
-  });
 
-  const handleTogglePlayMode = (playMode: PlayMode) => {
-    setPlayMode(playMode);
-  };
+  const handleTogglePlayMode = React.useCallback(
+    (newPlayMode: PlayMode) => {
+      setPlayMode(newPlayMode);
+      if (selectedTab === "monsters") {
+        const isDefaultMode: boolean = newPlayMode === "default" ? false : true;
 
-  const handleToggleCreatureMode = (option: CreatureFilter) =>
-    setCreatureFilter(option);
+        toggleTheme(isDefaultMode);
+      }
+    },
+    [selectedTab, toggleTheme]
+  );
 
-  React.useEffect(() => {
-    if (selectedTab === "monsters") {
-      const isDefaultMode: boolean = playMode === "default" ? false : true;
-
-      toggleTheme(isDefaultMode);
-    }
-  }, [playMode, selectedTab, toggleTheme]);
+  const handleToggleCreatureMode = React.useCallback(
+    (option: CreatureFilter) => setCreatureFilter(option),
+    []
+  );
 
   if (isError) {
     return <h1>OH NOOOOO</h1>;
