@@ -7,11 +7,11 @@ export type ColorScheme = {
   secondary: string;
   error: string;
   success: string;
-  darkBackground: string;
-  darkFont: string;
-  darkPrimary: string;
+  masterBackground: string;
+  masterFont: string;
+  masterPrimary: string;
   default: string;
-  isDarkMode: boolean;
+  isDefaultPlayMode: boolean;
 };
 
 export interface CustomTheme extends DefaultTheme, ColorScheme {}

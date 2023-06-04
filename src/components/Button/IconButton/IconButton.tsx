@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useTheme } from "hooks";
+import { usePlayMode } from "hooks";
 
 import { IconButtonContainer, Button, ActiveItemIndicator } from "./styled";
 import { ButtonProps } from "types";
@@ -14,13 +14,13 @@ const IconButton = ({
   children,
   useIndicator,
 }: ButtonProps) => {
-  const [theme] = useTheme();
+  const [theme] = usePlayMode();
 
   return (
     <IconButtonContainer>
       <Button
         isActive={isActive}
-        isDarkMode={theme.isDarkMode}
+        isDefaultPlayMode={theme.isDefaultPlayMode}
         onClick={onClick}
         hideButtons={hideButtons}
       >

@@ -11,7 +11,8 @@ const Button = styled.button<ButtonProps>`
   justify-content: center;
   align-items: center;
   border: 2px solid
-    ${(props) => (props.isDarkMode ? COLORS.darkPrimary : COLORS.primary)};
+    ${(props) =>
+      props.isDefaultPlayMode ? COLORS.masterPrimary : COLORS.primary};
   border-radius: 50%;
   background-color: ${(props) =>
     props.isActive ? COLORS.secondary : COLORS.secondary};
@@ -42,7 +43,7 @@ const Button = styled.button<ButtonProps>`
     filter: brightness(105%);
   }
   ${(props) =>
-    props.theme.isDarkMode &&
+    props.theme.isDefaultPlayMode &&
     css`
       background-image: url("/images/background.svg");
       background-color: ${COLORS.secondary};
@@ -82,7 +83,7 @@ const ActiveItemIndicator = styled.div<{ isActive: boolean }>`
   visibility: ${(props) => (props.isActive ? "visible" : "hidden")};
 
   filter: ${(props) =>
-    props.theme.isDarkMode ? "brightness(65%)" : "brightness(80%)"};
+    props.theme.isDefaultPlayMode ? "brightness(65%)" : "brightness(80%)"};
 `;
 
 export { IconButtonContainer, Button, ActiveItemIndicator };

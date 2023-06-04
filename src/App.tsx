@@ -1,12 +1,12 @@
 import React from "react";
-import { useFetchContent, useTheme } from "hooks";
+import { useFetchContent, usePlayMode } from "hooks";
 import { GlobalStyles } from "utils";
 import { Gallery, Loading, Nav, TogglePlayMode } from "components";
 import { ToggleCreatureMode } from "components/ToggleCreatureMode";
-import { PlayMode, CreatureFilter } from "types";
+import { CreatureFilter, PlayMode } from "types";
 
 function App() {
-  const [theme, toggleTheme] = useTheme();
+  const [playModeTheme, togglePlayMode] = usePlayMode();
   const [selectedTab, setSelectedTab] = React.useState("creatures");
   const [selectedIndex, setSelectedIndex] = React.useState(0);
   const [playMode, setPlayMode] = React.useState<PlayMode>("default");
@@ -22,10 +22,10 @@ function App() {
   const handleTabClick = React.useCallback(
     (index: number, selectedTabLabel: string) => {
       setSelectedIndex(index);
-      toggleTheme(false);
+      togglePlayMode(false);
       setSelectedTab(selectedTabLabel);
     },
-    [toggleTheme]
+    [togglePlayMode]
   );
 
   const handleTogglePlayMode = React.useCallback(
@@ -34,10 +34,10 @@ function App() {
       if (selectedTab === "monsters") {
         const isDefaultMode: boolean = newPlayMode === "default" ? false : true;
 
-        toggleTheme(isDefaultMode);
+        togglePlayMode(isDefaultMode);
       }
     },
-    [selectedTab, toggleTheme]
+    [selectedTab, togglePlayMode]
   );
 
   const handleToggleCreatureMode = React.useCallback(
@@ -53,11 +53,11 @@ function App() {
   }
   return (
     <main>
-      <GlobalStyles theme={theme} />
+      <GlobalStyles theme={playModeTheme} />
       <Nav
         selectedIndex={selectedIndex}
         handleClick={handleTabClick}
-        toggleTheme={toggleTheme}
+        togglePlayMode={togglePlayMode}
       />
       <ToggleCreatureMode
         showToggle={content[0].category === "creatures"}

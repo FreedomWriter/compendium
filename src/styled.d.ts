@@ -7,10 +7,10 @@ declare module "styled-components" {
     secondary: string;
     error: string;
     success: string;
-    darkBackground: string;
-    darkFont: string;
+    masterBackground: string;
+    masterFont: string;
     default: string;
-    isDarkMode: boolean;
+    isDefaultPlayMode: boolean;
     hideButtons?: boolean;
   }
 }
