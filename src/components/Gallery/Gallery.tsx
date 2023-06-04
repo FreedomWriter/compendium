@@ -3,14 +3,10 @@ import React from "react";
 import { Content, GalleryProps } from "types";
 import { GalleryButton, Tile } from "components";
 
-import { ButtonContainer, Container, Grid } from "./styled";
+import { ButtonContainer, Section, Grid } from "./styled";
 import { getNumOfItemsToDisplay } from "./helpers";
 
-const Gallery: React.FunctionComponent<GalleryProps> = ({
-  content,
-  category,
-  playMode,
-}) => {
+const Gallery: React.FunctionComponent<GalleryProps> = ({ content }) => {
   const [numOfItemsToDisplay, setNumOfItemsToDisplay] = React.useState<number>(
     getNumOfItemsToDisplay(content.length)
   );
@@ -57,7 +53,7 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({
       end: numOfItemsToDisplay,
     });
     setCurrentlyViewing(content.slice(0, numOfItemsToDisplay));
-  }, [category, content, numOfItemsToDisplay, playMode]);
+  }, [content, numOfItemsToDisplay]);
 
   React.useEffect(() => {
     const handleResize = () => {
@@ -73,7 +69,7 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({
   }, [content.length]);
 
   return (
-    <Container>
+    <Section>
       <ButtonContainer>
         <GalleryButton hideButtons={indexes.start === 0} onClick={handlePrev}>
           ←
@@ -94,7 +90,7 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({
           →
         </GalleryButton>
       </ButtonContainer>
-    </Container>
+    </Section>
   );
 };
 
