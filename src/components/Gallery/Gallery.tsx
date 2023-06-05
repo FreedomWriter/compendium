@@ -18,7 +18,6 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({ content }) => {
     content.slice(indexes.start, indexes.end)
   );
 
-  console.log(numOfItemsToDisplay, content.length);
   const handleNext = () => {
     if (indexes.start + numOfItemsToDisplay >= content.length) return;
     const updatedIndexes = {

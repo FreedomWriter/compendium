@@ -61,7 +61,6 @@ function App() {
         <Loading />
       ) : (
         <>
-          {console.log(content, content.length)}
           <ToggleCreatureMode
             showToggle={content[0].category === "creatures"}
             handleToggle={handleToggleCreatureMode}
