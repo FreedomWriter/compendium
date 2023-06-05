@@ -48,9 +48,7 @@ function App() {
   if (isError) {
     return <h1>OH NOOOOO</h1>;
   }
-  if (isLoading) {
-    return <Loading />;
-  }
+
   return (
     <main>
       <GlobalStyles theme={playModeTheme} />
@@ -59,18 +57,23 @@ function App() {
         handleClick={handleTabClick}
         togglePlayMode={togglePlayMode}
       />
-      <ToggleCreatureMode
-        showToggle={content[0].category === "creatures"}
-        handleToggle={handleToggleCreatureMode}
-        currFilter={creatureFilter}
-      />
-
-      <TogglePlayMode
-        showToggle={content[0].category === "monsters"}
-        playMode={playMode}
-        togglePlayMode={handleTogglePlayMode}
-      />
-      <Gallery content={content} />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <>
+          <ToggleCreatureMode
+            showToggle={content[0].category === "creatures"}
+            handleToggle={handleToggleCreatureMode}
+            currFilter={creatureFilter}
+          />
+          <TogglePlayMode
+            showToggle={content[0].category === "monsters"}
+            playMode={playMode}
+            togglePlayMode={handleTogglePlayMode}
+          />
+          <Gallery content={content} />
+        </>
+      )}
     </main>
   );
 }
