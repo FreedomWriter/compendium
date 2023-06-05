@@ -8,9 +8,12 @@ import { IconButton } from "components";
 import { NavContainer, TabNavContainer } from "./styled";
 
 const Nav = ({ selectedIndex, handleClick }: NavProps) => {
-  const handleTabClick = (index: number, currTab: Tab) => {
-    handleClick(index, currTab);
-  };
+  const handleTabClick = React.useCallback(
+    (index: number, currTab: Tab) => {
+      handleClick(index, currTab);
+    },
+    [handleClick]
+  );
 
   return (
     <>

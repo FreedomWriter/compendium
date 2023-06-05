@@ -4,8 +4,8 @@ import { ColorScheme } from "types";
 export const NAV_HEIGHT = 124;
 export const GALLERY_ROWS_SMALL = "auto";
 export const GALLERY_COLS_SMALL = 2;
-export const GALLERY_ROW_GAP_SMALL = 48;
-export const GALLERY_COL_GAP_SMALL = 16;
+export const GALLERY_ROW_GAP_SMALL = 40;
+export const GALLERY_COL_GAP_SMALL = 40;
 
 export const GALLERY_ROW_GAP_MEDIUM = 32;
 export const GALLERY_COL_GAP_MEDIUM = 32;
@@ -14,6 +14,13 @@ export const GALLERY_COLS_MEDIUM = 3;
 
 export const GALLERY_ROWS_LARGE = 3;
 export const GALLERY_COLS_LARGE = 5;
+export const GALLERY_ROW_GAP_LARGE = 16;
+export const GALLERY_COL_GAP_LARGE = 16;
+
+export const GALLERY_ROWS_XL = 5;
+export const GALLERY_COLS_XL = 6;
+export const GALLERY_ROW_GAP_XL = 16;
+export const GALLERY_COL_GAP_XL = 16;
 
 export const COLORS: ColorScheme = {
   background: "hsl(210, 15%, 95%)",
@@ -30,9 +37,10 @@ export const COLORS: ColorScheme = {
 };
 
 export const BREAKPOINTS = {
-  small: 500,
-  medium: 760,
-  large: 990,
+  small: 0,
+  medium: 768,
+  large: 1366,
+  xl: 1920,
 };
 
 type MediaQueryFunction = (
