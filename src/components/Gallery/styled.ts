@@ -68,10 +68,12 @@ export const Section = styled.section`
   ${media.medium`
     align-items: center;
     justify-items: center;
-    grid-template-columns: repeat(3, 1fr);padding-top: 0;
+    grid-template-columns: repeat(3, 1fr);
+    padding: ${NAV_HEIGHT_UNTIL_MEDIUM / 4}px 0;
+
   `}
   ${media.large`
-    padding-top: 40px;
+    padding: ${NAV_HEIGHT_UNTIL_MEDIUM / 3}px 0;
   `}
 `;
 
