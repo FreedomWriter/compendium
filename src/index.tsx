@@ -9,8 +9,8 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       // I would never do this in production, but I wanted to be gentle with the api I choose
-      staleTime: Infinity,
-      cacheTime: Infinity - 1,
+      staleTime: Infinity - 1,
+      cacheTime: Infinity,
     },
   },
 });

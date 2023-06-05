@@ -61,6 +61,7 @@ function App() {
         <Loading />
       ) : (
         <>
+          {console.log(content, content.length)}
           <ToggleCreatureMode
             showToggle={content[0].category === "creatures"}
             handleToggle={handleToggleCreatureMode}
@@ -71,7 +72,10 @@ function App() {
             playMode={playMode}
             togglePlayMode={handleTogglePlayMode}
           />
-          <Gallery content={content} />
+          <Gallery
+            key={content[0].category + creatureFilter}
+            content={content}
+          />
         </>
       )}
     </main>
