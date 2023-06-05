@@ -57,7 +57,7 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  padding: ${NAV_HEIGHT_UNTIL_MEDIUM}px 0 40px 0;
+  padding: ${NAV_HEIGHT_UNTIL_MEDIUM + 48}px 0 40px 0;
   margin: 0 auto;
   display: grid;
   align-items: center;

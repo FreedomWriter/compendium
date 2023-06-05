@@ -2,7 +2,7 @@ import React from "react";
 import { DarkModeConfigProps, PlayMode, TogglePlayModeProps } from "types";
 
 import { Field, Toggle } from "components";
-import { Container } from "./styled";
+import { Container } from "../styled";
 
 const playModeToggleConfig = ({
   playMode,

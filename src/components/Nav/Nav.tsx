@@ -3,10 +3,9 @@ import React from "react";
 import { CATEGORIES } from "./helpers";
 import { NavProps, Tab } from "types";
 
-import { IconButton, TogglePlayMode } from "components";
+import { IconButton, TogglePlayMode, ToggleCreatureMode } from "components";
 
 import { NavContainer, TabNavContainer } from "./styled";
-import { ToggleCreatureMode } from "components/ToggleCreatureMode";
 
 const Nav = ({
   selectedIndex,
