@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { COLORS } from "utils";
-import { CustomTheme } from "types";
+import { CustomTheme, PlayMode } from "types";
 
 const defaultPlayMode: CustomTheme = {
   ...COLORS,
@@ -18,8 +18,10 @@ const masterPlayMode: CustomTheme = {
 
 export type UsePlayMode = [CustomTheme, (manual?: boolean) => void];
 
-const usePlayMode = (): UsePlayMode => {
-  const [isDefaultPlayMode, setIsDefaultPlayMode] = useState(false);
+const usePlayMode = (playMode: PlayMode, selectedTab: string): UsePlayMode => {
+  const [isDefaultPlayMode, setIsDefaultPlayMode] = useState(
+    !!COLORS.isDefaultPlayMode
+  );
   const [playModeTheme, setPlayModeTheme] = useState<CustomTheme>({
     ...defaultPlayMode,
     isDefaultPlayMode,
@@ -33,11 +35,12 @@ const usePlayMode = (): UsePlayMode => {
   }, []);
 
   useEffect(() => {
-    const selectedPlayMode = isDefaultPlayMode
-      ? masterPlayMode
-      : defaultPlayMode;
+    const selectedPlayMode =
+      playMode === "master" && selectedTab === "monsters"
+        ? masterPlayMode
+        : defaultPlayMode;
     setPlayModeTheme({ ...selectedPlayMode, isDefaultPlayMode });
-  }, [isDefaultPlayMode]);
+  }, [isDefaultPlayMode, playMode, selectedTab]);
 
   const memoizedPlayModeTheme = React.useMemo(
     () => playModeTheme,

@@ -16,10 +16,11 @@ import {
   GALLERY_ROW_GAP_MEDIUM,
   GALLERY_ROW_GAP_SMALL,
   GALLERY_ROW_GAP_XL,
+  NAV_HEIGHT_UNTIL_MEDIUM,
   media,
 } from "utils";
 
-export const Grid = styled.div`
+export const Container = styled.div`
   height: 100%;
   margin: 16px auto;
 
@@ -56,7 +57,7 @@ export const Grid = styled.div`
 `;
 
 export const Section = styled.section`
-  padding: 16px 0 40px 0;
+  padding: ${NAV_HEIGHT_UNTIL_MEDIUM}px 0 40px 0;
   margin: 0 auto;
   display: grid;
   align-items: center;
@@ -67,11 +68,10 @@ export const Section = styled.section`
   ${media.medium`
     align-items: center;
     justify-items: center;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);padding-top: 0;
   `}
-
   ${media.large`
-    padding-top: 48px;
+    padding-top: 40px;
   `}
 `;
 
