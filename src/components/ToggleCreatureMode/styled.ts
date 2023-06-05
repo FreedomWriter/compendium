@@ -7,9 +7,9 @@ export const Container = styled.div<{ showToggle?: boolean }>`
   padding-bottom: 16px;
 
   ${media.large`
+    position: absolute;
     padding-right: 5%;
     padding-top: 24px;
-    position: absolute;
     top: 0;
     left: 100%;
     transform: translateX(-100%);

@@ -3,32 +3,37 @@ import {
   GALLERY_COLS_LARGE,
   GALLERY_COLS_MEDIUM,
   GALLERY_COLS_SMALL,
+  GALLERY_COLS_XL,
+  GALLERY_COL_GAP_LARGE,
   GALLERY_COL_GAP_MEDIUM,
   GALLERY_COL_GAP_SMALL,
+  GALLERY_COL_GAP_XL,
   GALLERY_ROWS_LARGE,
   GALLERY_ROWS_MEDIUM,
   GALLERY_ROWS_SMALL,
+  GALLERY_ROWS_XL,
+  GALLERY_ROW_GAP_LARGE,
   GALLERY_ROW_GAP_MEDIUM,
   GALLERY_ROW_GAP_SMALL,
-  NAV_HEIGHT,
+  GALLERY_ROW_GAP_XL,
+  NAV_HEIGHT_UNTIL_MEDIUM,
   media,
 } from "utils";
 
-export const Grid = styled.div`
-  width: 100%;
+export const Container = styled.div`
   height: 100%;
+  margin: 16px auto;
 
   display: grid;
-  margin: 16px auto;
-  grid-template-rows: ${GALLERY_ROWS_SMALL};
-  grid-template-columns: repeat(${GALLERY_COLS_SMALL}, 1fr);
   align-items: center;
   justify-items: center;
+  grid-template-rows: ${GALLERY_ROWS_SMALL};
+  grid-template-columns: repeat(${GALLERY_COLS_SMALL}, 1fr);
+
   grid-row-gap: ${GALLERY_ROW_GAP_SMALL}px;
   grid-column-gap: ${GALLERY_COL_GAP_SMALL}px;
 
   ${media.medium`
-  display: grid;
     grid-template-rows: repeat(${GALLERY_ROWS_MEDIUM}, 1fr);
     grid-template-columns: repeat(${GALLERY_COLS_MEDIUM}, 1fr);
     grid-row-gap: ${GALLERY_ROW_GAP_MEDIUM}px;
@@ -37,23 +42,36 @@ export const Grid = styled.div`
 
   ${media.large`
     grid-template-rows: repeat(${GALLERY_ROWS_LARGE}, 1fr);
+    grid-row-gap: ${GALLERY_ROW_GAP_LARGE}px;
+    grid-column-gap: ${GALLERY_COL_GAP_LARGE}px;
     grid-template-columns: repeat(${GALLERY_COLS_LARGE}, 1fr);
     margin: 0 auto;
+    
+  `}
+    ${media.xl`
+    grid-template-rows: repeat(${GALLERY_ROWS_XL}, 1fr);
+    grid-row-gap: ${GALLERY_ROW_GAP_XL}px;
+    grid-column-gap: ${GALLERY_COL_GAP_XL}px;
+    grid-template-columns: repeat(${GALLERY_COLS_XL}, 1fr);
   `}
 `;
 
-export const Container = styled.div`
-  display: flex;
-  justify-content: center;
+export const Section = styled.section`
+  padding: ${NAV_HEIGHT_UNTIL_MEDIUM}px 0 40px 0;
+  margin: 0 auto;
+  display: grid;
   align-items: center;
-  padding: 16px 0 40px 0;
-  height: calc(100vh - ${NAV_HEIGHT + 216}px); // account for padding
+  justify-items: center;
+  grid-template-rows: auto;
+  grid-template-columns: repeat(1, 1fr);
 
+  ${media.medium`
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: repeat(3, 1fr);padding-top: 0;
+  `}
   ${media.large`
-  // toggles, which are only visible for certain pages,
-  // move from under the tabs to next to them, account for that
-    height: calc(100vh - ${NAV_HEIGHT + 112}px); // account for padding
- 
+    padding-top: 40px;
   `}
 `;
 
@@ -61,9 +79,10 @@ export const ButtonContainer = styled.div`
   display: none;
   ${media.medium`
     display: flex;
-    width: 100%;
     justify-content: center;
-    padding: 16px ;
-    font-size: 32px;
+    
   `}
+`;
+export const TileContainer = styled.div`
+  padding-bottom: 28px; // Tile title height + 4px for border
 `;

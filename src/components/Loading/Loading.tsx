@@ -7,8 +7,10 @@ const Loading: React.FunctionComponent<LoadingProps> = () => {
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;
+
   return (
     <Container>
+      {prefersReducedMotion && <p>Loading...</p>}
       <Image
         src={"/images/loader.svg"}
         alt="loading"

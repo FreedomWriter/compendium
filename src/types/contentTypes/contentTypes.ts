@@ -30,6 +30,4 @@ export type FetchContentProps = {
 };
 export type GalleryProps = {
   content: Content[];
-  category?: string;
-  playMode?: string;
 };

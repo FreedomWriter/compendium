@@ -4,11 +4,12 @@ import { Article, ImageContainer, Title, Image } from "./styled";
 interface TileProps {
   imgSrc: string;
   name: string;
+  id: string;
 }
 
-const Tile: React.FunctionComponent<TileProps> = ({ imgSrc, name }) => {
+const Tile: React.FunctionComponent<TileProps> = ({ imgSrc, name, id }) => {
   return (
-    <Article>
+    <Article id={id}>
       <ImageContainer>
         <Image src={imgSrc} alt={name} />
       </ImageContainer>

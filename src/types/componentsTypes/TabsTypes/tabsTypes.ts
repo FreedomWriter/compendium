@@ -1,7 +1,7 @@
 export type TabsProps = {
   tabsConfig: TabConfig[];
   defaultIndex?: number;
-  toggleTheme: (newValue: boolean) => void;
+  togglePlayMode: (newValue: boolean) => void;
 };
 
 export type TabContentProps = {

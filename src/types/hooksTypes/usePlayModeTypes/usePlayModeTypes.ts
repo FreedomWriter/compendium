@@ -1,6 +1,6 @@
 import { CustomTheme } from "types";
 
-export type UseThemeResponse = [CustomTheme, (mode?: boolean) => void];
+export type UsePlayMode = [CustomTheme, (mode?: boolean) => void];
 
 export type PlayMode = "default" | "master";
 

@@ -1,10 +1,9 @@
 import React from "react";
 
-import { useTheme } from "hooks";
-
 import { IconButtonContainer, Button, ActiveItemIndicator } from "./styled";
 import { ButtonProps } from "types";
 import { VisuallyHidden } from "components";
+import { COLORS } from "utils";
 
 const IconButton = ({
   onClick,
@@ -14,13 +13,11 @@ const IconButton = ({
   children,
   useIndicator,
 }: ButtonProps) => {
-  const [theme] = useTheme();
-
   return (
     <IconButtonContainer>
       <Button
         isActive={isActive}
-        isDarkMode={theme.isDarkMode}
+        isDefaultPlayMode={COLORS.isDefaultPlayMode}
         onClick={onClick}
         hideButtons={hideButtons}
       >
