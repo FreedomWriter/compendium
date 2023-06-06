@@ -53,9 +53,9 @@ export const Title = styled.div`
   filter: brightness(60%);
   color: ${COLORS.background};
   width: 124px;
-  height: 56px;
+  height: 64px;
   position: absolute;
-  bottom: -28px;
+  bottom: -32px;
   display: flex;
   justify-content: center;
   align-items: center;

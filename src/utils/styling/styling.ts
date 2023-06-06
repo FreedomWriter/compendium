@@ -3,10 +3,10 @@ import { ColorScheme } from "types";
 
 export const GALLERY_ROWS_SMALL = "auto";
 export const GALLERY_COLS_SMALL = 2;
-export const GALLERY_ROW_GAP_SMALL = 40;
-export const GALLERY_COL_GAP_SMALL = 40;
+export const GALLERY_ROW_GAP_SMALL = 24;
+export const GALLERY_COL_GAP_SMALL = 24;
 
-export const GALLERY_ROW_GAP_MEDIUM = 16;
+export const GALLERY_ROW_GAP_MEDIUM = 8;
 export const GALLERY_COL_GAP_MEDIUM = 24;
 export const GALLERY_ROWS_MEDIUM = 3;
 export const GALLERY_COLS_MEDIUM = 4;
