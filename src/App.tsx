@@ -32,7 +32,6 @@ function App() {
     },
     [togglePlayMode]
   );
-  console.log({ isToggleVisible });
 
   const handleTogglePlayMode = React.useCallback(
     (newPlayMode: PlayMode) => {

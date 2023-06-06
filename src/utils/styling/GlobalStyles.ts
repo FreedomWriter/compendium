@@ -68,7 +68,8 @@ export const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
     margin: 0 auto;
     font-family: 'Coming Soon', sans-serif;
-  font-weight: 600;
+    font-weight: 600;
+    outline: transparent;
   }
 
 `;

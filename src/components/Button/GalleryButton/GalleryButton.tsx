@@ -5,21 +5,24 @@ import { Container } from "./styled";
 export type GalleryButtonProps = {
   hideButtons: boolean;
   onClick: () => void;
-  children: React.ReactNode;
   icon?: string;
+  label?: string;
 };
 
 const GalleryButton = ({
   hideButtons,
   onClick,
-  children,
   icon,
+  label,
 }: GalleryButtonProps) => {
   return (
     <Container>
-      <IconButton icon={icon} hideButtons={hideButtons} onClick={onClick}>
-        {children}
-      </IconButton>
+      <IconButton
+        label={label}
+        icon={icon}
+        hideButtons={hideButtons}
+        onClick={onClick}
+      ></IconButton>
     </Container>
   );
 };

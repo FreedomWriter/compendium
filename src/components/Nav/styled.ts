@@ -37,7 +37,7 @@ export const TabNavContainer = styled.ul<{ isToggleVisible: boolean }>`
   list-style-type: none;
 
   position: absolute;
-  top: 25%;
+  top: 48px;
   left: 50%;
   transform: translate(-50%, -50%);
 
@@ -46,12 +46,6 @@ export const TabNavContainer = styled.ul<{ isToggleVisible: boolean }>`
   justify-content: center;
   gap: 24px;
   width: 100%;
-
-  ${(props) =>
-    !props.isToggleVisible &&
-    css`
-      top: 37.5%;
-    `};
 
   ${media.large`
     position: absolute;

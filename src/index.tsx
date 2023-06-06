@@ -5,6 +5,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { ModalProvider } from "Context";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -20,7 +21,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <ModalProvider>
+        <App />
+      </ModalProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>

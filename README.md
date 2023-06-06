@@ -1,5 +1,7 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+
 <a name="readme-top"></a>
+
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
 *** that would make this better, please fork the repo and create a pull request
@@ -7,8 +9,6 @@
 *** Don't forget to give the project a star!
 *** Thanks again! Now go create something AMAZING! :D
 -->
-
-
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -25,8 +25,6 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 -->
-
-
 
 <!-- PROJECT LOGO -->
 <br />
@@ -48,8 +46,6 @@
     <a href="https://hyrue-compendium.netlify.app/">View Demo</a>
   </p>
 </div>
-
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -77,34 +73,30 @@
   </ol>
 </details>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 <img width="1510" alt="desktop view of app" src="https://github.com/FreedomWriter/compendium/assets/50391354/b008e991-b1eb-440d-bfdb-2e6cb2f0c8e3"/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 ### Built With
 
-* [![React][React.js]](https://react.dev/)
-* [![Typescript][TypeScript]](https://www.typescriptlang.org/)
-* [Axios](https://axios-http.com/docs/intro)
-* [Styled Components](https://styled-components.com/)
-* [TanStack Query](https://tanstack.com/query/)
-* [Hyrule Compendium API](https://gadhagod.github.io/Hyrule-Compendium-API/#/?id=master_modeentry)
-
+- [![React][React.js]](https://react.dev/)
+- [React Focus Lock](https://www.npmjs.com/package/react-focus-lock)
+- [React Remove Scroll](https://www.npmjs.com/package/react-remove-scroll)
+- [![Typescript][TypeScript]](https://www.typescriptlang.org/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Styled Components](https://styled-components.com/)
+- [TanStack Query](https://tanstack.com/query/)
+- [Hyrule Compendium API](https://gadhagod.github.io/Hyrule-Compendium-API/#/?id=master_modeentry)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- GETTING STARTED -->
-## Getting Started
 
+## Getting Started
 
 ### Installation
 
@@ -116,38 +108,35 @@
    ```sh
    npm install
    ```
-4. Start development server
+3. Start development server
    ```sh
    npm start
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-
 <!-- ROADMAP -->
+
 ## Roadmap
 
 - [ ] Testing plan
-  - [ ] Write unit tests to cover all hooks 
+  - [ ] Write unit tests to cover all hooks
   - [ ] Write intergration tests to ensure the following behave as expected:
     - [ ] Filtering by Creature type (all, edible, inedible)
     - [ ] Filtering by Monster type (master mode, default)
 - [ ] Search capability
   - [ ] The api does support searching, however only for exact matches, so this needs to be implemented client side
 - [ ] Detailed view
-    - [ ] Create a Modal component
-    - [ ] Create card component
-    - [ ] Render Card in Modal when a Tile is clicked
+  - [ ] Create a Modal component
+  - [ ] Create card component
+  - [ ] Render Card in Modal when a Tile is clicked
 
 See the [open issues](https://github.com/github_username/repo_name/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -163,18 +152,15 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- LICENSE -->
+
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
-<!-- CONTACT 
+<!-- CONTACT
 ## Contact
 
 Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
@@ -183,9 +169,7 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>-->
 
-
-
-<!-- ACKNOWLEDGMENTS 
+<!-- ACKNOWLEDGMENTS
 ## Acknowledgments
 
 * []()
@@ -194,10 +178,8 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links 
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links
 [contributors-shield]: https://img.shields.io/github/contributors/FreedomWriter/compendium.svg?style=for-the-badge
 [contributors-url]: https://github.com/FreedomWriter/repo_name/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/FreedomWriter/compendium.svg?style=for-the-badge
@@ -210,15 +192,13 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [license-url]: https://github.com/FreedomWriter/compendium/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555-->
 
-  
 ## Tablet:
+
 <img width="350" alt="tablet view" src="https://github.com/FreedomWriter/compendium/assets/50391354/108e27cc-ae86-46d3-9319-e502de491c67"/>
 
-  
 ## Mobile:
+
 <img width="350" alt="mobile view" src="https://github.com/FreedomWriter/compendium/assets/50391354/0e475724-d7b4-44fb-973c-0125cb1608a5"/>
-
-
 
 [React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [React-url]: https://reactjs.org/

@@ -8,4 +8,5 @@ export type ButtonProps = {
   hideButtons?: boolean;
   icon?: string;
   useIndicator?: boolean;
+  label?: string;
 };
