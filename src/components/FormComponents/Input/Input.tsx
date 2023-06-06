@@ -2,14 +2,14 @@ import { HTMLInputTypeAttribute } from "react";
 import styled from "styled-components";
 import { COLORS } from "utils";
 
-export type InputProps = {
+export interface InputProps {
   type: HTMLInputTypeAttribute;
   id: string;
   name: string;
   value?: any;
   defaultChecked: boolean;
   onClick?: () => void;
-};
+}
 
 const InputBase = styled.input<InputProps>`
   display: block;

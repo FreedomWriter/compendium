@@ -15,11 +15,17 @@ import {
   TitleContainer,
 } from "./styled";
 
-const Modal: React.FC<{
+interface ModalProps {
   content: any;
   handleClose: () => void;
   isModalVisible: boolean;
-}> = ({ content, handleClose, isModalVisible }) => {
+}
+
+const Modal: React.FC<ModalProps> = ({
+  content,
+  handleClose,
+  isModalVisible,
+}) => {
   const {
     name,
     category,

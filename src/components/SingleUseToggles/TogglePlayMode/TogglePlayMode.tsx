@@ -1,5 +1,5 @@
 import React from "react";
-import { DarkModeConfigProps, PlayMode, TogglePlayModeProps } from "types";
+import { DarkModeConfigProps, PlayMode } from "types";
 
 import { Field, Toggle } from "components";
 import { Container } from "../styled";
@@ -26,11 +26,17 @@ const playModeToggleConfig = ({
   },
 ];
 
-function TogglePlayMode({
+export interface TogglePlayModeProps {
+  togglePlayMode: (playMode: PlayMode) => void;
+  playMode: PlayMode;
+  showToggle?: boolean;
+}
+
+const TogglePlayMode: React.FC<TogglePlayModeProps> = ({
   playMode,
   togglePlayMode,
   showToggle,
-}: TogglePlayModeProps) {
+}) => {
   const handleTogglePlayMode = (playMode: PlayMode) => togglePlayMode(playMode);
   return (
     <Container showToggle={showToggle}>
@@ -40,6 +46,6 @@ function TogglePlayMode({
       />
     </Container>
   );
-}
+};
 
 export { TogglePlayMode };

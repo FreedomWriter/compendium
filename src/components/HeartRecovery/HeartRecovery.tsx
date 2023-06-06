@@ -1,9 +1,11 @@
 import React from "react";
 import { Container, StyledSVG } from "./styled";
 
-const HeartRecovery: React.FunctionComponent<{ count: number }> = ({
-  count,
-}) => {
+export interface HeartRecoveryProps {
+  count: number;
+}
+
+const HeartRecovery: React.FC<HeartRecoveryProps> = ({ count }) => {
   const heartsArr = new Array(count).fill(null);
 
   return (

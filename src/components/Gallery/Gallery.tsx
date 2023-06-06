@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Content, GalleryProps } from "types";
+import { Content } from "types";
 import { GalleryButton, Modal, Tile } from "components";
 
 import { ButtonContainer, Section, Container, TileContainer } from "./styled";
@@ -8,10 +8,12 @@ import { getNumOfItemsToDisplay } from "./helpers";
 import { NAV_HEIGHT, TOGGLE_HEIGHT } from "utils";
 import { useModal } from "hooks";
 
-const Gallery: React.FunctionComponent<GalleryProps> = ({
-  content,
-  isToggleVisible,
-}) => {
+export interface GalleryProps {
+  content: Content[];
+  isToggleVisible: boolean;
+}
+
+const Gallery: React.FC<GalleryProps> = ({ content, isToggleVisible }) => {
   const firstVisibleElementRef = React.useRef<HTMLElement | null>(null);
   const scrollableContainerRef = React.useRef<HTMLDivElement>(null);
 

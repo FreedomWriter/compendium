@@ -2,8 +2,17 @@ import React from "react";
 
 import { Field, Toggle } from "components";
 import { Container } from "../styled";
+import { CreatureFilter } from "types";
 
-import { CreatureConfig, ToggleCreatureModeTypes } from "types";
+export type CreatureConfig = {
+  currFilter: CreatureFilter;
+  handleToggle: (currFilter: CreatureFilter) => void;
+};
+export type ToggleCreatureModeTypes = {
+  handleToggle: (currFilter: CreatureFilter) => void;
+  showToggle: boolean;
+  currFilter: CreatureFilter;
+};
 
 const creatureToggleConfig = ({
   handleToggle,
@@ -35,11 +44,11 @@ const creatureToggleConfig = ({
   },
 ];
 
-function ToggleCreatureMode({
+const ToggleCreatureMode: React.FC<ToggleCreatureModeTypes> = ({
   handleToggle,
   showToggle,
   currFilter,
-}: ToggleCreatureModeTypes) {
+}) => {
   return (
     <Container showToggle={showToggle}>
       <Toggle
@@ -48,6 +57,6 @@ function ToggleCreatureMode({
       />
     </Container>
   );
-}
+};
 
 export { ToggleCreatureMode };

@@ -1,11 +1,21 @@
 import React from "react";
 
 import { IconButtonContainer, Button, ActiveItemIndicator } from "./styled";
-import { ButtonProps } from "types";
 import { VisuallyHidden } from "components";
 import { COLORS } from "utils";
 
-const IconButton = ({
+export interface ButtonProps {
+  children?: React.ReactNode;
+  onClick: () => void;
+  isDefaultPlayMode?: boolean;
+  isActive?: boolean;
+  hideButtons?: boolean;
+  icon?: string;
+  useIndicator?: boolean;
+  label?: string;
+}
+
+const IconButton: React.FC<ButtonProps> = ({
   onClick,
   isActive,
   hideButtons,
@@ -13,7 +23,7 @@ const IconButton = ({
   children,
   useIndicator,
   label,
-}: ButtonProps) => {
+}) => {
   return (
     <IconButtonContainer>
       <Button

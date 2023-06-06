@@ -6,8 +6,15 @@ import {
   useGetMonsters,
   useGetTreasure,
 } from "hooks";
-import { FetchContentProps } from "types";
+
 import { useGetMasterMode } from "hooks/useGetMasterMode";
+import { CreatureFilter, FetchingType, PlayMode } from "types";
+
+export interface FetchContentProps {
+  type: FetchingType;
+  playMode?: PlayMode;
+  creatureFilter?: CreatureFilter;
+}
 
 const useFetchContent = ({
   creatureFilter,
