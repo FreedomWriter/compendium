@@ -23,7 +23,7 @@ import {
 
 export const Container = styled.div`
   height: 100%;
-  padding: 40px 0;
+  padding: 40px 0 24px;
   margin: 16px auto;
   position: relative;
 
@@ -39,7 +39,8 @@ export const Container = styled.div`
 
   ${media.medium`
     overflow: visible;
-    padding-top: 0;
+    width: 100%;
+    padding: 0;
     grid-template-rows: repeat(${GALLERY_ROWS_MEDIUM}, 1fr);
     grid-template-columns: repeat(${GALLERY_COLS_MEDIUM}, 1fr);
     grid-row-gap: ${GALLERY_ROW_GAP_MEDIUM}px;
