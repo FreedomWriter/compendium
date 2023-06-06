@@ -5,7 +5,7 @@ import { GalleryButton, Tile } from "components";
 
 import { ButtonContainer, Section, Container, TileContainer } from "./styled";
 import { getNumOfItemsToDisplay } from "./helpers";
-import { NAV_HEIGHT_UNTIL_MEDIUM } from "utils";
+import { NAV_HEIGHT } from "utils";
 
 const Gallery: React.FunctionComponent<GalleryProps> = ({ content }) => {
   const firstVisibleElementRef = React.useRef<HTMLElement | null>(null);
@@ -73,7 +73,7 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({ content }) => {
     window.scrollBy({
       top:
         Math.ceil(prevFirstVisibleElement.getBoundingClientRect().top) -
-        NAV_HEIGHT_UNTIL_MEDIUM,
+        NAV_HEIGHT,
       behavior: "smooth",
     });
   }, [content.length, numOfItemsToDisplay]);

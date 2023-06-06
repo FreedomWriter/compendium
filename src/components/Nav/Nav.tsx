@@ -33,31 +33,39 @@ const Nav = ({
       }
     >
       <TabNavContainer>
-        {CATEGORIES.map((cat, index) => (
-          <li key={`tab-${index}`}>
-            <IconButton
-              isActive={selectedIndex === index}
-              onClick={() => handleTabClick(index, cat)}
-              icon={cat}
-              useIndicator
-            />
-          </li>
-        ))}
+        {CATEGORIES.map((cat, index) => {
+          return (
+            <li key={`tab-${index}`}>
+              <IconButton
+                isActive={selectedIndex === index}
+                onClick={() => handleTabClick(index, cat)}
+                icon={cat}
+                useIndicator
+              />
+            </li>
+          );
+        })}
       </TabNavContainer>
-      {!isContentLoading && (
-        <>
-          <ToggleCreatureMode
-            showToggle={content[0].category === "creatures"}
-            handleToggle={handleToggleCreatureMode}
-            currFilter={creatureFilter}
-          />
-          <TogglePlayMode
-            showToggle={content[0].category === "monsters"}
-            playMode={playMode}
-            togglePlayMode={handleTogglePlayMode}
-          />
-        </>
-      )}
+      <div>
+        {!isContentLoading && (
+          <>
+            {content[0].category === "creatures" && (
+              <ToggleCreatureMode
+                showToggle={content[0].category === "creatures"}
+                handleToggle={handleToggleCreatureMode}
+                currFilter={creatureFilter}
+              />
+            )}
+            {content[0].category === "monsters" && (
+              <TogglePlayMode
+                showToggle={content[0].category === "monsters"}
+                playMode={playMode}
+                togglePlayMode={handleTogglePlayMode}
+              />
+            )}
+          </>
+        )}
+      </div>
     </NavContainer>
   );
 };

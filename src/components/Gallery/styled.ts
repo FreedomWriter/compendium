@@ -16,7 +16,7 @@ import {
   GALLERY_ROW_GAP_MEDIUM,
   GALLERY_ROW_GAP_SMALL,
   GALLERY_ROW_GAP_XL,
-  NAV_HEIGHT_UNTIL_MEDIUM,
+  NAV_HEIGHT,
   media,
 } from "utils";
 
@@ -57,7 +57,7 @@ export const Container = styled.div`
 `;
 
 export const Section = styled.section`
-  padding: ${NAV_HEIGHT_UNTIL_MEDIUM + 48}px 0 40px 0;
+  padding: ${NAV_HEIGHT + 48}px 0 40px 0;
   margin: 0 auto;
   display: grid;
   align-items: center;
@@ -69,11 +69,11 @@ export const Section = styled.section`
     align-items: center;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
-    padding: ${NAV_HEIGHT_UNTIL_MEDIUM / 4}px 0;
+    padding: ${NAV_HEIGHT / 4}px 0;
 
   `}
   ${media.large`
-    padding: ${NAV_HEIGHT_UNTIL_MEDIUM / 3}px 0;
+    padding: ${NAV_HEIGHT / 3}px 0;
   `}
 `;
 

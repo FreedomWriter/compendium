@@ -30,7 +30,7 @@ const IconButton = ({
         )}
         <VisuallyHidden>{icon}</VisuallyHidden>
       </Button>
-      {useIndicator && <ActiveItemIndicator isActive={!!isActive} />}
+      {useIndicator && !!isActive && <ActiveItemIndicator />}
     </IconButtonContainer>
   );
 };

@@ -1,35 +1,43 @@
 import styled from "styled-components";
-import { NAV_HEIGHT_LARGE, NAV_HEIGHT_UNTIL_MEDIUM, media } from "utils";
+import { NAV_HEIGHT, TOGGLE_HEIGHT, media } from "utils";
 
 export const NavContainer = styled.nav<{ useMasterTheme: boolean }>`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
   position: fixed;
-  left: 0;
-  right: 0;
-  margin: auto;
-  z-index: 1;
-  justify-content: center;
-  align-items: center;
-  padding: 16px;
+  width: 100%;
+  height: ${NAV_HEIGHT + TOGGLE_HEIGHT}px;
 
   background-color: var(--background);
-  ${media.medium` position: static;`}
+
+  border: 1px solid transparent;
+
+  ${media.medium`
+    position: relative;
+  `};
 
   ${media.large`
-    position: static;
+    height: ${NAV_HEIGHT}px;
   `};
 `;
 
 export const TabNavContainer = styled.ul`
-  list-style-type: none;
   padding: 0;
-  padding-top: 16px;
+  list-style-type: none;
+
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 24px;
-  height: ${NAV_HEIGHT_UNTIL_MEDIUM};
+  width: 100%;
+
   ${media.large`
-    height: ${NAV_HEIGHT_LARGE};
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   `}
 `;

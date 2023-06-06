@@ -1,23 +1,22 @@
 import styled, { css } from "styled-components";
-import { media } from "utils";
+import { NAV_BUTTONS_HEIGHT, fadeAnimationKeyframe, media } from "utils";
 
 export const Container = styled.div<{ showToggle?: boolean }>`
-  display: none;
-  justify-content: center;
-  padding-bottom: 16px;
+  position: static;
+  transform: none;
+  margin: ${NAV_BUTTONS_HEIGHT + 48}px auto 0;
+  width: fit-content;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  animation: ${fadeAnimationKeyframe} 0.5s ease-in-out forwards;
 
   ${media.large`
     position: absolute;
-    padding-right: 5%;
-    padding-top: 24px;
-    top: 0;
-    left: 100%;
-    transform: translateX(-100%);
-  `}
+    margin: 0;
+    top: calc(50% - 8px); // account for the active item indicator
+    right: 12.5%;
+    transform: translateY(-50%);
+  `};
 
-  ${(props) =>
-    props.showToggle &&
-    css`
-      display: flex;
-    `}
+  ${(props) => props.showToggle && css``};
 `;
