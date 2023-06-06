@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import { COLORS } from "utils";
-import { CustomTheme, PlayMode } from "types";
+import { CustomTheme, FetchingType, PlayMode } from "types";
 
 const defaultPlayMode: CustomTheme = {
   ...COLORS,
@@ -18,7 +18,10 @@ const masterPlayMode: CustomTheme = {
 
 export type UsePlayMode = [CustomTheme, (manual?: boolean) => void];
 
-const usePlayMode = (playMode: PlayMode, selectedTab: string): UsePlayMode => {
+const usePlayMode = (
+  playMode: PlayMode,
+  selectedTab: FetchingType
+): UsePlayMode => {
   const [isDefaultPlayMode, setIsDefaultPlayMode] = useState(
     !!COLORS.isDefaultPlayMode
   );

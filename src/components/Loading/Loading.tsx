@@ -3,7 +3,7 @@ import { Container, Image } from "./styled";
 
 interface LoadingProps {}
 
-const Loading: React.FunctionComponent<LoadingProps> = () => {
+const Loading: React.FC<LoadingProps> = () => {
   const prefersReducedMotion = window.matchMedia(
     "(prefers-reduced-motion: reduce)"
   ).matches;

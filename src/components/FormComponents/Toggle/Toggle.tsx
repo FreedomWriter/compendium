@@ -17,7 +17,7 @@ export type ToggleProps = {
   fields: Field[];
 };
 
-const Toggle = ({ legend, fields }: ToggleProps) => {
+const Toggle: React.FC<ToggleProps> = ({ legend, fields }) => {
   return (
     <FieldSet>
       <legend>{legend}</legend>

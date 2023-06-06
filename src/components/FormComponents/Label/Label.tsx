@@ -5,12 +5,12 @@ const LabelElement = styled.label`
   width: 100%;
 `;
 
-export type LabelProps = {
+export interface LabelProps {
   children: React.ReactNode | string;
   htmlFor: string;
-};
+}
 
-const Label = ({ children, htmlFor }: LabelProps) => {
+const Label: React.FC<LabelProps> = ({ children, htmlFor }) => {
   return <LabelElement htmlFor={htmlFor}>{children}</LabelElement>;
 };
 

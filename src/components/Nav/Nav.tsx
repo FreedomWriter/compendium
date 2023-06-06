@@ -1,13 +1,24 @@
 import React from "react";
 
 import { CATEGORIES } from "./helpers";
-import { NavProps, Tab } from "types";
+import { Content, CreatureFilter, FetchingType, PlayMode, Tab } from "types";
 
 import { IconButton, TogglePlayMode, ToggleCreatureMode } from "components";
 
 import { NavContainer, TabNavContainer } from "./styled";
-
-const Nav = ({
+export interface NavProps {
+  handleClick: (index: number, selectedTabLabel: FetchingType) => void;
+  selectedIndex: number;
+  togglePlayMode: (isDefaultPlayMode: boolean) => void;
+  content: Content[];
+  handleToggleCreatureMode: (option: CreatureFilter) => void;
+  handleTogglePlayMode: (newPlayMode: PlayMode) => void;
+  playMode: PlayMode;
+  creatureFilter: CreatureFilter;
+  isContentLoading: boolean;
+  isToggleVisible: boolean;
+}
+const Nav: React.FC<NavProps> = ({
   selectedIndex,
   handleClick,
   content,
@@ -17,7 +28,7 @@ const Nav = ({
   creatureFilter,
   isContentLoading,
   isToggleVisible,
-}: NavProps) => {
+}) => {
   const handleTabClick = React.useCallback(
     (index: number, currTab: Tab) => {
       handleClick(index, currTab);

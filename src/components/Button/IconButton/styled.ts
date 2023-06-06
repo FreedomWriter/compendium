@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import { ButtonProps } from "types";
+import { ButtonProps } from "./IconButton";
 
 import { COLORS, slideInBottomKeyframe } from "utils";
 

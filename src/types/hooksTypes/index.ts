@@ -4,4 +4,3 @@ export * from "./materialsTypes";
 export * from "./monsterTypes";
 export * from "./treasureTypes";
 export * from "./usePlayModeTypes";
-export * from "./useModalTypes";

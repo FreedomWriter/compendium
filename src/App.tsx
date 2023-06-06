@@ -3,11 +3,12 @@ import { useFetchContent, usePlayMode } from "hooks";
 import { GlobalStyles } from "utils";
 import { Gallery, Loading, Nav } from "components";
 
-import { CreatureFilter, PlayMode } from "types";
+import { CreatureFilter, FetchingType, PlayMode } from "types";
 
 function App() {
   const [playMode, setPlayMode] = React.useState<PlayMode>("default");
-  const [selectedTab, setSelectedTab] = React.useState("creatures");
+  const [selectedTab, setSelectedTab] =
+    React.useState<FetchingType>("creatures");
   const [playModeTheme, togglePlayMode] = usePlayMode(playMode, selectedTab);
   const [selectedIndex, setSelectedIndex] = React.useState(0);
 
@@ -22,7 +23,7 @@ function App() {
   const [isToggleVisible, setIsToggleVisible] = React.useState(true); // passed to Nav to help control nav height on mobile
 
   const handleTabClick = React.useCallback(
-    (index: number, selectedTabLabel: string) => {
+    (index: number, selectedTabLabel: FetchingType) => {
       setSelectedIndex(index);
       togglePlayMode(false);
       setSelectedTab(selectedTabLabel);

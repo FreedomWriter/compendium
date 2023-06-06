@@ -1,5 +1,9 @@
 import React, { createContext, useState } from "react";
-import { ModalContextType } from "types";
+export interface ModalContextType {
+  isModalVisible: boolean;
+  openModal: () => void;
+  closeModal: () => void;
+}
 
 // Create the ModalContext
 export const ModalContext = createContext<ModalContextType | undefined>(
