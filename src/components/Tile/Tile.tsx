@@ -1,20 +1,23 @@
 import React from "react";
 import { Article, ImageContainer, Title, Image } from "./styled";
 
-interface TileProps {
-  imgSrc: string;
-  name: string;
-  id: string;
-}
+type TileProps = {
+  item: any;
+  variant?: "modal";
+};
 
-const Tile: React.FunctionComponent<TileProps> = ({ imgSrc, name, id }) => {
+const Tile: React.FunctionComponent<TileProps> = ({ item, variant }) => {
+  const { image, name, id } = item;
+
   return (
-    <Article id={id}>
-      <ImageContainer>
-        <Image src={imgSrc} alt={name} />
-      </ImageContainer>
-      <Title>{name}</Title>
-    </Article>
+    <>
+      <Article id={id} variant={variant}>
+        <ImageContainer>
+          <Image src={image} alt={name} />
+        </ImageContainer>
+        <Title>{name}</Title>
+      </Article>
+    </>
   );
 };
 

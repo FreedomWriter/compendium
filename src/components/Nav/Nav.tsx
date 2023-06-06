@@ -41,8 +41,9 @@ const Nav = ({
               <IconButton
                 isActive={selectedIndex === index}
                 onClick={() => handleTabClick(index, cat)}
-                icon={cat}
+                icon={`${cat}.png`}
                 useIndicator
+                label={cat}
               />
             </li>
           );

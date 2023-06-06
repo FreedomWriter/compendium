@@ -37,6 +37,10 @@ export const Container = styled.div`
   grid-column-gap: ${GALLERY_COL_GAP_SMALL}px;
   overflow-x: auto;
 
+  ${media.tablet`
+    grid-template-columns: repeat(3, 1fr);
+  `}
+
   ${media.medium`
     overflow: visible;
     width: 100%;
@@ -87,7 +91,7 @@ export const Section = styled.section<{ isToggleVisible: boolean }>`
     align-items: center;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
-    padding: ${NAV_HEIGHT / 4}px 0;
+    padding: ${NAV_HEIGHT / 4 - 16}px ;
 
   `}
   ${media.large`
@@ -103,6 +107,8 @@ export const ButtonContainer = styled.div`
     
   `}
 `;
-export const TileContainer = styled.div`
+export const TileContainer = styled.button`
   padding-bottom: 28px; // Tile title height + 4px for border
+  border: transparent;
+  background-color: transparent;
 `;

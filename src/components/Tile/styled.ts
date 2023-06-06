@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { COLORS, media } from "utils";
 
 const fadeIn = keyframes`
@@ -10,7 +10,7 @@ const fadeIn = keyframes`
   }
 `;
 
-export const Article = styled.article`
+export const Article = styled.article<{ variant?: "modal" }>`
   position: relative;
   display: flex;
   align-items: center;
@@ -22,6 +22,28 @@ export const Article = styled.article`
     width: 156px;
     height: 156px;
   `}
+
+  ${(props) =>
+    props.variant &&
+    css`
+      width: 300px;
+      height: 300px;
+      img {
+        border: 4px solid ${COLORS.secondary};
+        border-radius: 32px;
+
+        ${media.medium`
+          border: 8px solid ${COLORS.secondary};
+        `}
+      }
+      p {
+        border: 4px solid ${COLORS.secondary};
+
+        ${media.medium`
+          border: 8px solid ${COLORS.secondary};
+        `}
+      }
+    `}
 `;
 
 export const ImageContainer = styled.div`
@@ -40,12 +62,11 @@ export const Image = styled.img`
   animation: ${fadeIn} 1s ease forwards;
 
   ${media.medium`
-  
-  border: 4px solid ${COLORS.secondary};
+    border: 4px solid ${COLORS.secondary};
   `}
 `;
 
-export const Title = styled.div`
+export const Title = styled.p`
   text-align: center;
   padding: 4px;
   background-color: ${COLORS.primary};

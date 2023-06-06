@@ -42,7 +42,7 @@ export const COLORS: ColorScheme = {
 
 export const BREAKPOINTS = {
   small: 0,
-  medium: 700,
+  medium: 900,
   large: 1366,
   xl: 1920,
   tablet: 767,

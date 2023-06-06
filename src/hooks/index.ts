@@ -5,3 +5,4 @@ export * from "./useGetMonsters";
 export * from "./useGetTreasure";
 export * from "./usePlayMode";
 export * from "./useFetchContent";
+export * from "./useModal";

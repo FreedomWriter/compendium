@@ -12,6 +12,7 @@ const IconButton = ({
   icon,
   children,
   useIndicator,
+  label,
 }: ButtonProps) => {
   return (
     <IconButtonContainer>
@@ -20,15 +21,16 @@ const IconButton = ({
         isDefaultPlayMode={COLORS.isDefaultPlayMode}
         onClick={onClick}
         hideButtons={hideButtons}
+        label={label}
       >
         {children ? (
           children
         ) : (
           <div>
-            <img src={`/images/${icon}.png`} alt={icon}></img>
+            <img src={`/images/${icon}`} alt={label}></img>
           </div>
         )}
-        <VisuallyHidden>{icon}</VisuallyHidden>
+        <VisuallyHidden>{label}</VisuallyHidden>
       </Button>
       {useIndicator && !!isActive && <ActiveItemIndicator />}
     </IconButtonContainer>

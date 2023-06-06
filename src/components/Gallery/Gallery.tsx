@@ -1,11 +1,12 @@
 import React from "react";
 
 import { Content, GalleryProps } from "types";
-import { GalleryButton, Tile } from "components";
+import { GalleryButton, Modal, Tile } from "components";
 
 import { ButtonContainer, Section, Container, TileContainer } from "./styled";
 import { getNumOfItemsToDisplay } from "./helpers";
 import { NAV_HEIGHT, TOGGLE_HEIGHT } from "utils";
+import { useModal } from "hooks";
 
 const Gallery: React.FunctionComponent<GalleryProps> = ({
   content,
@@ -24,6 +25,10 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({
   const [currentlyViewing, setCurrentlyViewing] = React.useState(() =>
     content.slice(indexes.start, indexes.end)
   );
+
+  const [modalContent, setModalContent] = React.useState<any>(null);
+
+  const { isModalVisible, openModal, closeModal } = useModal();
 
   const handleNext = () => {
     // there is no next set - do nothing and hide next button
@@ -59,6 +64,11 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({
     setCurrentlyViewing(
       content.slice(updatedIndexes.start, updatedIndexes.end)
     );
+  };
+
+  const handleTileClick = (item: any) => {
+    setModalContent(item);
+    openModal();
   };
 
   const handleAutoScrollOnMobileResize = React.useCallback(() => {
@@ -185,32 +195,48 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({
   }, [handleAutoScrollOnMobileResize, handleResizeViewport]);
 
   return (
-    <Section isToggleVisible={!!isToggleVisible}>
-      <ButtonContainer>
-        <GalleryButton hideButtons={indexes.start === 0} onClick={handlePrev}>
-          ←
-        </GalleryButton>
-      </ButtonContainer>
+    <>
+      <Section isToggleVisible={!!isToggleVisible}>
+        <ButtonContainer>
+          <GalleryButton
+            icon="skip-back.svg"
+            hideButtons={indexes.start === 0}
+            onClick={handlePrev}
+            label="previous"
+          />
+        </ButtonContainer>
 
-      <Container ref={scrollableContainerRef}>
-        {currentlyViewing.map((item: Content) => (
-          <TileContainer key={item.id} id={item.name}>
-            <Tile id={item.name} imgSrc={item.image} name={item.name} />
-          </TileContainer>
-        ))}
-      </Container>
+        <Container ref={scrollableContainerRef}>
+          {currentlyViewing.map((item: Content) => (
+            <TileContainer
+              onClick={() => handleTileClick(item)}
+              key={item.id}
+              id={item.name}
+            >
+              <Tile item={item} />
+            </TileContainer>
+          ))}
+        </Container>
 
-      <ButtonContainer>
-        <GalleryButton
-          hideButtons={
-            indexes.start + numOfItemsToDisplay >= content.length - 1
-          }
-          onClick={handleNext}
-        >
-          →
-        </GalleryButton>
-      </ButtonContainer>
-    </Section>
+        <ButtonContainer>
+          <GalleryButton
+            hideButtons={
+              indexes.start + numOfItemsToDisplay >= content.length - 1
+            }
+            onClick={handleNext}
+            icon="skip-forward.svg"
+            label="next"
+          />
+        </ButtonContainer>
+      </Section>
+      {isModalVisible && (
+        <Modal
+          content={modalContent}
+          handleClose={closeModal}
+          isModalVisible={isModalVisible}
+        />
+      )}
+    </>
   );
 };
 
