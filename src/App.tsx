@@ -19,15 +19,20 @@ function App() {
     playMode,
     creatureFilter,
   });
+  const [isToggleVisible, setIsToggleVisible] = React.useState(true); // passed to Nav to help control nav height on mobile
 
   const handleTabClick = React.useCallback(
     (index: number, selectedTabLabel: string) => {
       setSelectedIndex(index);
       togglePlayMode(false);
       setSelectedTab(selectedTabLabel);
+      setIsToggleVisible(
+        selectedTabLabel === "creatures" || selectedTabLabel === "monsters"
+      );
     },
     [togglePlayMode]
   );
+  console.log({ isToggleVisible });
 
   const handleTogglePlayMode = React.useCallback(
     (newPlayMode: PlayMode) => {
@@ -63,6 +68,7 @@ function App() {
         creatureFilter={creatureFilter}
         content={content}
         isContentLoading={isLoading}
+        isToggleVisible={isToggleVisible}
       />
       {isLoading ? (
         <Loading />
@@ -70,6 +76,7 @@ function App() {
         <Gallery
           key={content[0]?.category + creatureFilter + playMode}
           content={content}
+          isToggleVisible={isToggleVisible}
         />
       )}
     </main>

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { NAV_BUTTONS_HEIGHT, fadeAnimationKeyframe, media } from "utils";
 
 export const Container = styled.div<{ showToggle?: boolean }>`
@@ -17,6 +17,4 @@ export const Container = styled.div<{ showToggle?: boolean }>`
     right: 12.5%;
     transform: translateY(-50%);
   `};
-
-  ${(props) => props.showToggle && css``};
 `;

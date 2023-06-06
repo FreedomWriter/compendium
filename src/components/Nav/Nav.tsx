@@ -16,6 +16,7 @@ const Nav = ({
   playMode,
   creatureFilter,
   isContentLoading,
+  isToggleVisible,
 }: NavProps) => {
   const handleTabClick = React.useCallback(
     (index: number, currTab: Tab) => {
@@ -31,8 +32,9 @@ const Nav = ({
         playMode === "master" &&
         content[0].category === "monsters"
       }
+      isToggleVisible={isToggleVisible}
     >
-      <TabNavContainer>
+      <TabNavContainer isToggleVisible={isToggleVisible}>
         {CATEGORIES.map((cat, index) => {
           return (
             <li key={`tab-${index}`}>
@@ -46,7 +48,7 @@ const Nav = ({
           );
         })}
       </TabNavContainer>
-      <div>
+      <>
         {!isContentLoading && (
           <>
             {content[0].category === "creatures" && (
@@ -65,7 +67,7 @@ const Nav = ({
             )}
           </>
         )}
-      </div>
+      </>
     </NavContainer>
   );
 };

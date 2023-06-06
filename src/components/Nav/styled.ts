@@ -1,17 +1,30 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { NAV_HEIGHT, TOGGLE_HEIGHT, media } from "utils";
 
-export const NavContainer = styled.nav<{ useMasterTheme: boolean }>`
+export const NavContainer = styled.nav<{
+  useMasterTheme: boolean;
+  isToggleVisible: boolean;
+}>`
   position: fixed;
   width: 100%;
-  height: ${NAV_HEIGHT + TOGGLE_HEIGHT}px;
+  z-index: 3
+    /* set to 3 so it renders above the scrollable content and the mask */;
+
+  ${(props) =>
+    props.isToggleVisible
+      ? css`
+          height: ${NAV_HEIGHT + TOGGLE_HEIGHT}px;
+        `
+      : css`
+          height: ${NAV_HEIGHT}px;
+        `};
 
   background-color: var(--background);
 
-  border: 1px solid transparent;
-
   ${media.medium`
     position: relative;
+    height: ${NAV_HEIGHT + TOGGLE_HEIGHT}px;
+    border: 1px solid transparent;
   `};
 
   ${media.large`
@@ -19,7 +32,7 @@ export const NavContainer = styled.nav<{ useMasterTheme: boolean }>`
   `};
 `;
 
-export const TabNavContainer = styled.ul`
+export const TabNavContainer = styled.ul<{ isToggleVisible: boolean }>`
   padding: 0;
   list-style-type: none;
 
@@ -33,6 +46,12 @@ export const TabNavContainer = styled.ul`
   justify-content: center;
   gap: 24px;
   width: 100%;
+
+  ${(props) =>
+    !props.isToggleVisible &&
+    css`
+      top: 37.5%;
+    `};
 
   ${media.large`
     position: absolute;

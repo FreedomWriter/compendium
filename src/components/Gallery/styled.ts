@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import {
   GALLERY_COLS_LARGE,
   GALLERY_COLS_MEDIUM,
@@ -17,12 +17,15 @@ import {
   GALLERY_ROW_GAP_SMALL,
   GALLERY_ROW_GAP_XL,
   NAV_HEIGHT,
+  TOGGLE_HEIGHT,
   media,
 } from "utils";
 
 export const Container = styled.div`
   height: 100%;
+  padding: 40px 0;
   margin: 16px auto;
+  position: relative;
 
   display: grid;
   align-items: center;
@@ -32,8 +35,11 @@ export const Container = styled.div`
 
   grid-row-gap: ${GALLERY_ROW_GAP_SMALL}px;
   grid-column-gap: ${GALLERY_COL_GAP_SMALL}px;
+  overflow-x: auto;
 
   ${media.medium`
+    overflow: visible;
+    padding-top: 0;
     grid-template-rows: repeat(${GALLERY_ROWS_MEDIUM}, 1fr);
     grid-template-columns: repeat(${GALLERY_COLS_MEDIUM}, 1fr);
     grid-row-gap: ${GALLERY_ROW_GAP_MEDIUM}px;
@@ -56,16 +62,27 @@ export const Container = styled.div`
   `}
 `;
 
-export const Section = styled.section`
-  padding: ${NAV_HEIGHT + 48}px 0 40px 0;
+export const Section = styled.section<{ isToggleVisible: boolean }>`
   margin: 0 auto;
   display: grid;
   align-items: center;
   justify-items: center;
   grid-template-rows: auto;
   grid-template-columns: repeat(1, 1fr);
+  position: absolute;
+  width: 100%;
+
+  ${(props) =>
+    props.isToggleVisible
+      ? css`
+          top: ${NAV_HEIGHT + TOGGLE_HEIGHT}px;
+        `
+      : css`
+          top: ${NAV_HEIGHT}px;
+        `};
 
   ${media.medium`
+    position: static;
     align-items: center;
     justify-items: center;
     grid-template-columns: repeat(3, 1fr);
