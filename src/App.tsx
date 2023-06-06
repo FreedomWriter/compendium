@@ -1,84 +1,35 @@
+import { usePlayMode } from "hooks";
+import { HomePage } from "pages";
 import React from "react";
-import { useFetchContent, usePlayMode } from "hooks";
+import { FetchingType, PlayMode } from "types";
 import { GlobalStyles } from "utils";
-import { Gallery, Loading, Nav } from "components";
-
-import { CreatureFilter, FetchingType, PlayMode } from "types";
 
 function App() {
-  const [playMode, setPlayMode] = React.useState<PlayMode>("default");
   const [selectedTab, setSelectedTab] =
     React.useState<FetchingType>("creatures");
+  const [playMode, setPlayMode] = React.useState<PlayMode>("default");
   const [playModeTheme, togglePlayMode] = usePlayMode(playMode, selectedTab);
-  const [selectedIndex, setSelectedIndex] = React.useState(0);
 
-  const [creatureFilter, setCreatureFilter] =
-    React.useState<CreatureFilter>("all");
-
-  const { content, isError, isLoading } = useFetchContent({
-    type: selectedTab,
-    playMode,
-    creatureFilter,
-  });
-  const [isToggleVisible, setIsToggleVisible] = React.useState(true); // passed to Nav to help control nav height on mobile
-
-  const handleTabClick = React.useCallback(
-    (index: number, selectedTabLabel: FetchingType) => {
-      setSelectedIndex(index);
-      togglePlayMode(false);
-      setSelectedTab(selectedTabLabel);
-      setIsToggleVisible(
-        selectedTabLabel === "creatures" || selectedTabLabel === "monsters"
-      );
-    },
-    [togglePlayMode]
-  );
-
-  const handleTogglePlayMode = React.useCallback(
-    (newPlayMode: PlayMode) => {
-      setPlayMode(newPlayMode);
-      if (selectedTab === "monsters") {
-        const isDefaultMode: boolean = newPlayMode === "default" ? false : true;
-
-        togglePlayMode(isDefaultMode);
-      }
-    },
-    [selectedTab, togglePlayMode]
-  );
-
-  const handleToggleCreatureMode = React.useCallback(
-    (option: CreatureFilter) => setCreatureFilter(option),
-    []
-  );
-
-  if (isError) {
-    return <h1>OH NOOOOO</h1>;
-  }
+  const memoizedSelectedTab = React.useMemo(() => selectedTab, [selectedTab]);
+  const memoizedPlayMode = React.useMemo(() => playMode, [playMode]);
+  const memoizedSetSelectedTab = React.useCallback(setSelectedTab, [
+    setSelectedTab,
+  ]);
+  const memoizedSetPlayMode = React.useCallback(setPlayMode, [setPlayMode]);
+  const memoizedTogglePlayMode = React.useCallback(togglePlayMode, [
+    togglePlayMode,
+  ]);
 
   return (
     <main>
       <GlobalStyles theme={playModeTheme} />
-      <Nav
-        selectedIndex={selectedIndex}
-        handleClick={handleTabClick}
-        togglePlayMode={togglePlayMode}
-        handleToggleCreatureMode={handleToggleCreatureMode}
-        handleTogglePlayMode={handleTogglePlayMode}
-        playMode={playMode}
-        creatureFilter={creatureFilter}
-        content={content}
-        isContentLoading={isLoading}
-        isToggleVisible={isToggleVisible}
+      <HomePage
+        selectedTab={memoizedSelectedTab}
+        playMode={memoizedPlayMode}
+        setSelectedTab={memoizedSetSelectedTab}
+        setPlayMode={memoizedSetPlayMode}
+        togglePlayMode={memoizedTogglePlayMode}
       />
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <Gallery
-          key={content[0]?.category + creatureFilter + playMode}
-          content={content}
-          isToggleVisible={isToggleVisible}
-        />
-      )}
     </main>
   );
 }
