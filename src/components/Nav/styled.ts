@@ -23,7 +23,7 @@ export const NavContainer = styled.nav<{
 
   ${media.medium`
     position: relative;
-    height: ${NAV_HEIGHT + TOGGLE_HEIGHT - 32}px;
+    height: ${NAV_HEIGHT + TOGGLE_HEIGHT}px;
     border: 1px solid transparent;
   `};
 
