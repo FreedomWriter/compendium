@@ -205,11 +205,17 @@ Project Link: [https://github.com/github_username/repo_name](https://github.com/
 [license-url]: https://github.com/FreedomWriter/compendium/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555-->
 
-## Tablet:
+## Large Tablet:
 
 <div align="center">
-<img width="350" alt="tablet view" src="https://github.com/FreedomWriter/compendium/assets/50391354/108e27cc-ae86-46d3-9319-e502de491c67"/></div>
+<img width="350" alt="large tablet view" src="https://github.com/FreedomWriter/compendium/assets/50391354/108e27cc-ae86-46d3-9319-e502de491c67"/></div>
 <br></br>
+                                                                                                                                         
+## Small Tablet:
+
+<div align="center">
+<img width="350" alt="small tablet view" src="https://github.com/FreedomWriter/compendium/assets/50391354/ff2aa842-2c8f-4869-851a-04208753293a"/></div>
+<br></br>                                                                                                                                      
 
 ## Mobile:
 
