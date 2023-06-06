@@ -11,6 +11,5 @@ declare module "styled-components" {
     masterFont: string;
     default: string;
     isDefaultPlayMode: boolean;
-    hideButtons?: boolean;
   }
 }
