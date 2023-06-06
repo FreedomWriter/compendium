@@ -1,15 +1,15 @@
-import { css } from "styled-components";
+import { css, keyframes } from "styled-components";
 import { ColorScheme } from "types";
 
 export const GALLERY_ROWS_SMALL = "auto";
 export const GALLERY_COLS_SMALL = 2;
-export const GALLERY_ROW_GAP_SMALL = 40;
-export const GALLERY_COL_GAP_SMALL = 40;
+export const GALLERY_ROW_GAP_SMALL = 24;
+export const GALLERY_COL_GAP_SMALL = 24;
 
-export const GALLERY_ROW_GAP_MEDIUM = 32;
-export const GALLERY_COL_GAP_MEDIUM = 32;
-export const GALLERY_ROWS_MEDIUM = 4;
-export const GALLERY_COLS_MEDIUM = 3;
+export const GALLERY_ROW_GAP_MEDIUM = 8;
+export const GALLERY_COL_GAP_MEDIUM = 24;
+export const GALLERY_ROWS_MEDIUM = 3;
+export const GALLERY_COLS_MEDIUM = 4;
 
 export const GALLERY_ROWS_LARGE = 3;
 export const GALLERY_COLS_LARGE = 5;
@@ -20,6 +20,11 @@ export const GALLERY_ROWS_XL = 5;
 export const GALLERY_COLS_XL = 6;
 export const GALLERY_ROW_GAP_XL = 16;
 export const GALLERY_COL_GAP_XL = 16;
+
+export const NAV_HEIGHT = 144;
+export const NAV_BUTTONS_HEIGHT = 64;
+export const TOGGLE_WIDTH = 64;
+export const TOGGLE_HEIGHT = 66;
 
 export const COLORS: ColorScheme = {
   background: "hsl(210, 15%, 95%)",
@@ -37,9 +42,10 @@ export const COLORS: ColorScheme = {
 
 export const BREAKPOINTS = {
   small: 0,
-  medium: 768,
+  medium: 700,
   large: 1366,
   xl: 1920,
+  tablet: 767,
 };
 
 type MediaQueryFunction = (
@@ -56,15 +62,32 @@ export const media: Record<string, MediaQueryFunction> = Object.keys(
   `;
   return acc;
 }, {});
-export const TOGGLE_HEIGHT = 184;
-export const NAV_HEIGHT_UNTIL_MEDIUM = 208;
-export const NAV_HEIGHT_LARGE = 124;
 
-export const TAB_HEIGHT = `calc(100vh - ${
-  NAV_HEIGHT_UNTIL_MEDIUM + 216
-}px); // account for padding
-  ${media.large`
-  // toggles, which are only visible for certain pages,
-  // move from under the tabs to next to them, account for that
-    height: calc(100vh - ${NAV_HEIGHT_LARGE + 112}px); // account for padding
-  `}`;
+export const pulseAnimation = keyframes`
+  0% {
+    transform: scale(0.8) rotate(0deg);
+  }
+  100% {
+    transform: scale(0.8) rotate(360deg);
+  }
+`;
+
+export const fadeAnimationKeyframe = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
+export const slideInBottomKeyframe = keyframes`
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+`;

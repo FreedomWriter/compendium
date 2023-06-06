@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Field, Toggle } from "components";
-import { Container } from "./styled";
+import { Container } from "../styled";
 
 import { CreatureConfig, ToggleCreatureModeTypes } from "types";
 

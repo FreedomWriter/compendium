@@ -30,4 +30,5 @@ export type FetchContentProps = {
 };
 export type GalleryProps = {
   content: Content[];
+  isToggleVisible: boolean;
 };

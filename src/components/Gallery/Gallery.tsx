@@ -5,9 +5,12 @@ import { GalleryButton, Tile } from "components";
 
 import { ButtonContainer, Section, Container, TileContainer } from "./styled";
 import { getNumOfItemsToDisplay } from "./helpers";
-import { NAV_HEIGHT_UNTIL_MEDIUM } from "utils";
+import { NAV_HEIGHT, TOGGLE_HEIGHT } from "utils";
 
-const Gallery: React.FunctionComponent<GalleryProps> = ({ content }) => {
+const Gallery: React.FunctionComponent<GalleryProps> = ({
+  content,
+  isToggleVisible,
+}) => {
   const firstVisibleElementRef = React.useRef<HTMLElement | null>(null);
   const scrollableContainerRef = React.useRef<HTMLDivElement>(null);
 
@@ -73,10 +76,10 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({ content }) => {
     window.scrollBy({
       top:
         Math.ceil(prevFirstVisibleElement.getBoundingClientRect().top) -
-        NAV_HEIGHT_UNTIL_MEDIUM,
+        (isToggleVisible ? NAV_HEIGHT + TOGGLE_HEIGHT : NAV_HEIGHT),
       behavior: "smooth",
     });
-  }, [content.length, numOfItemsToDisplay]);
+  }, [content.length, isToggleVisible, numOfItemsToDisplay]);
 
   const isElementVisible = (element: HTMLElement): boolean => {
     const rect = element.getBoundingClientRect();
@@ -182,12 +185,13 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({ content }) => {
   }, [handleAutoScrollOnMobileResize, handleResizeViewport]);
 
   return (
-    <Section>
+    <Section isToggleVisible={!!isToggleVisible}>
       <ButtonContainer>
         <GalleryButton hideButtons={indexes.start === 0} onClick={handlePrev}>
           ←
         </GalleryButton>
       </ButtonContainer>
+
       <Container ref={scrollableContainerRef}>
         {currentlyViewing.map((item: Content) => (
           <TileContainer key={item.id} id={item.name}>
@@ -195,6 +199,7 @@ const Gallery: React.FunctionComponent<GalleryProps> = ({ content }) => {
           </TileContainer>
         ))}
       </Container>
+
       <ButtonContainer>
         <GalleryButton
           hideButtons={

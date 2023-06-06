@@ -10,4 +10,5 @@ export type NavProps = {
   playMode: PlayMode;
   creatureFilter: CreatureFilter;
   isContentLoading: boolean;
+  isToggleVisible: boolean;
 };

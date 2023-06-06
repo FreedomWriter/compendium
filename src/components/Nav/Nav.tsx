@@ -3,10 +3,9 @@ import React from "react";
 import { CATEGORIES } from "./helpers";
 import { NavProps, Tab } from "types";
 
-import { IconButton, TogglePlayMode } from "components";
+import { IconButton, TogglePlayMode, ToggleCreatureMode } from "components";
 
 import { NavContainer, TabNavContainer } from "./styled";
-import { ToggleCreatureMode } from "components/ToggleCreatureMode";
 
 const Nav = ({
   selectedIndex,
@@ -17,6 +16,7 @@ const Nav = ({
   playMode,
   creatureFilter,
   isContentLoading,
+  isToggleVisible,
 }: NavProps) => {
   const handleTabClick = React.useCallback(
     (index: number, currTab: Tab) => {
@@ -32,33 +32,42 @@ const Nav = ({
         playMode === "master" &&
         content[0].category === "monsters"
       }
+      isToggleVisible={isToggleVisible}
     >
-      <TabNavContainer>
-        {CATEGORIES.map((cat, index) => (
-          <li key={`tab-${index}`}>
-            <IconButton
-              isActive={selectedIndex === index}
-              onClick={() => handleTabClick(index, cat)}
-              icon={cat}
-              useIndicator
-            />
-          </li>
-        ))}
+      <TabNavContainer isToggleVisible={isToggleVisible}>
+        {CATEGORIES.map((cat, index) => {
+          return (
+            <li key={`tab-${index}`}>
+              <IconButton
+                isActive={selectedIndex === index}
+                onClick={() => handleTabClick(index, cat)}
+                icon={cat}
+                useIndicator
+              />
+            </li>
+          );
+        })}
       </TabNavContainer>
-      {!isContentLoading && (
-        <>
-          <ToggleCreatureMode
-            showToggle={content[0].category === "creatures"}
-            handleToggle={handleToggleCreatureMode}
-            currFilter={creatureFilter}
-          />
-          <TogglePlayMode
-            showToggle={content[0].category === "monsters"}
-            playMode={playMode}
-            togglePlayMode={handleTogglePlayMode}
-          />
-        </>
-      )}
+      <>
+        {!isContentLoading && (
+          <>
+            {content[0].category === "creatures" && (
+              <ToggleCreatureMode
+                showToggle={content[0].category === "creatures"}
+                handleToggle={handleToggleCreatureMode}
+                currFilter={creatureFilter}
+              />
+            )}
+            {content[0].category === "monsters" && (
+              <TogglePlayMode
+                showToggle={content[0].category === "monsters"}
+                playMode={playMode}
+                togglePlayMode={handleTogglePlayMode}
+              />
+            )}
+          </>
+        )}
+      </>
     </NavContainer>
   );
 };
