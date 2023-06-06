@@ -24,7 +24,7 @@ root.render(
       <ModalProvider>
         <App />
       </ModalProvider>
-      {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   </React.StrictMode>
 );
