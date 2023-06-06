@@ -4,7 +4,7 @@ import { Content } from "types";
 import { getNumOfItemsToDisplay } from "./helpers";
 import { NAV_HEIGHT, TOGGLE_HEIGHT } from "utils";
 
-interface DynamicListProps {
+interface DynamicListContainerProps {
   children: React.ReactNode;
   content: Content[];
   isToggleVisible: boolean;
@@ -16,7 +16,7 @@ interface DynamicListProps {
   currentlyViewing: Content[];
 }
 
-const DynamicList: React.FC<DynamicListProps> = ({
+const DynamicListContainer: React.FC<DynamicListContainerProps> = ({
   children,
   content,
   isToggleVisible,
@@ -164,4 +164,4 @@ const DynamicList: React.FC<DynamicListProps> = ({
   return <Container ref={scrollableContainerRef}>{children}</Container>;
 };
 
-export default DynamicList;
+export { DynamicListContainer };

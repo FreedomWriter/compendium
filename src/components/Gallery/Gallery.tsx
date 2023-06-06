@@ -7,7 +7,7 @@ import { ButtonContainer, Section, TileContainer } from "./styled";
 import { getNumOfItemsToDisplay } from "./helpers";
 
 import { useModal } from "hooks";
-import DynamicList from "./DynamicList";
+import { DynamicListContainer } from "./DynamicListContainer";
 
 export interface GalleryProps {
   content: Content[];
@@ -83,7 +83,7 @@ const Gallery: React.FC<GalleryProps> = ({ content, isToggleVisible }) => {
           />
         </ButtonContainer>
 
-        <DynamicList
+        <DynamicListContainer
           content={content}
           isToggleVisible={isToggleVisible}
           numOfItemsToDisplay={numOfItemsToDisplay}
@@ -102,7 +102,7 @@ const Gallery: React.FC<GalleryProps> = ({ content, isToggleVisible }) => {
               <Tile item={item} />
             </TileContainer>
           ))}
-        </DynamicList>
+        </DynamicListContainer>
 
         <ButtonContainer>
           <GalleryButton
